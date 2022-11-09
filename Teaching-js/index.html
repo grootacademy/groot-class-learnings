@@ -1,19 +1,83 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        body{
-            /* background-color: rgb(9, 255, 0); */
-        }
-    </style>
-</head>
-<body id="bd">
-    
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            /* div{
+                padding: 20px 40px;
+                background-color:rgb(229, 229, 229);
+                margin: 50px;
+                border-top: 8px solid;
+                border-image:  linear-gradient(to right, rgb(151, 151, 151) 30% , rgb(26, 26, 104) 30%, blue 60%, rgb(5, 213, 255) 60% , rgb(195, 255, 15) 100%) 1 ;
+                text-align: center;
+            } */
 
-<script src="scripts/array.js"></script>
+            .box1{
+                padding: 50px;
+                /* background-color: #bdbdbd; */
+                background: linear-gradient(to right,  #3b0000,  #dd0000, #3b0000);
+                color: white;
+                font-size: 25px;
+                letter-spacing: 20px;
+                font-family: cursive;
+                margin: 50px;
+                text-align: center;
+                box-shadow: -10px 10px 10px #000000;
+                /* border: 20px groove #848484; */
+                /* border: 1px dotted black; */
+            }
+
+            body{
+                background-color: rgb(47, 47, 47);
+            }
+
+            .box2{
+                padding: 20px 80px;
+                background-color:rgb(255, 0, 0);
+                margin: 50px auto;
+                text-align: center;
+                width: fit-content;
+                border-radius: 100px;
+                box-shadow: 0 0 50px rgb(255, 0, 0);
+                color: white;
+            }
+
+            .rohan{
+                background-color: cyan ;
+                box-shadow: 0 0 50px cyan;
+                color: black;
+            }
+
+            .box4{
+                background-color: yellow ;
+                box-shadow: 0 0 50px yellow;
+                color: black;
+            }
+            #tbl{
+                background-color: gray;
+                padding: 20px;
+                margin-top: 20px;
+            }
+    </style>
+    </head>
+    <body id="bd">
+
+        <!-- <div class="box1">Jitin</div> -->
+
+        <!-- <div class="box2">Ritesh</div>
+        <div class="box2 rohan">Ritesh</div>
+        <div class="box2 box4">Ritesh</div> -->
+        <button onclick="jitin(5)">table for 5</button>
+        <button onclick="jitin(4)">table for 4</button>
+        <button onclick="jitin(3)">table for 3</button>
+        <button onclick="jitin(2)">table for 2</button>
+
+        <div id="tbl"></div>
+
+    </body>
+
+    <script src="scripts/functions.js"></script>
 </html>
