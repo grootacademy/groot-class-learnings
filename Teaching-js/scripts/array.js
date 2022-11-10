@@ -76,4 +76,25 @@ let nums1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // concat
 // nums.concat(nums1)
 
-console.log( nums.concat(nums1) )
+// console.log( nums.concat(nums1) )
+
+
+// OVER
+
+
+
+
+
+
+
+
+let arr = [12, 34, 12, 51, 15, 21, 8];
+
+for( let i=0; i <= 6; i++){
+   
+    console.log(arr[i]*2);
+}
+
+
+
+
