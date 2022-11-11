@@ -62,7 +62,13 @@
 
 
 
+            #box{
+                font-size: 17px;
+            }
 
+            #box3{
+                color: gray;
+            }
 
         </style>
     </head>
@@ -76,16 +82,14 @@
             Deleniti?
         </div>
 
+        <div id="box3"></div>
 
-        <div id="box2">This is content</div>
-
+        <!-- <div id="box2">This is content</div> -->
 
         <div id="popup">
             <div class="inner_pop">
-                <input type="text" placeholder="Search">
-                <button
-                    type="button"
-                    onclick="document.getElementById('popup').style= 'none'">
+                <input id="inp" type="text" placeholder="Search">
+                <button  onclick="submitButton()">
                     Click Here
                 </button>
             </div>

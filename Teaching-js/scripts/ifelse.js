@@ -44,14 +44,14 @@
 // if (gAge > 18 && bAge > 21 && bIncome > 30000) {
 //     console.log("can marry")
 // }else{
-//     console.log("can't marry")
+//     console.log("OYO jaao")
 // }
 
 
 // if ((gAge > 18 && bAge > 21) || bIncome > 30000) {
 //     console.log("can marry")
 // } else {
-//     console.log("can't marry")
+//     console.log("OYO jaao")
 // }
 
 // OVER

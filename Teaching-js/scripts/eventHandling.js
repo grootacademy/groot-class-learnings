@@ -1,5 +1,6 @@
 
-let doc2 = document.getElementById("box2").style;
+let doc1 = document.getElementById("box").style;
+// let doc2 = document.getElementById("box2").style;
 let popUp = document.getElementById("popup").style;
 
 let a = 0;
@@ -73,12 +74,56 @@ let a = 0;
 // })
 
 document.getElementById("box").addEventListener('dblclick', () => {
-    popUp.display = "flex"
+
+  popUp.display = "flex"
+
 })
 
-document.getElementById("box").addEventListener('dblclick', () => {
-    popUp.display = "flex"
-})
+// document.getElementById("box").addEventListener('dblclick', () => {
+//     popUp.display = "flex"
+// })
 
 
+// let fs = 17;
 
+
+// document.addEventListener('wheel', (e) => {
+
+//     console.log(e)
+
+//     if (e.deltaY > 0) {
+//         doc1.fontSize = fs + "px";
+//         fs -= 1;
+
+//     } else {
+
+//         doc1.fontSize = fs + "px";
+//         fs += 1;
+//     }
+
+// })
+
+
+// document.getElementById("box").addEventListener('click', () => {
+//   console.log("first")
+
+//   document.getElementById("box").innerHTML = "this";
+
+// })
+
+const submitButton = () => {
+
+  document.getElementById('popup').style.display = 'none';
+  
+  let val = document.getElementById('inp').value
+
+  document.getElementById('box3').innerHTML = val;
+
+}
+
+
+function name(params) {
+  
+}
+
+() =>{}
