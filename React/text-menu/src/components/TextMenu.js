@@ -41,7 +41,7 @@ function TextMenu() {
         <>
             <section className='d-flex align-items-center flex-column p-4' style={{background:"gray"}}>
 
-              <textarea  cols="80" rows="7"></textarea>
+              <textarea  cols="80" rows="7" onChange={handleText} value={mytext}></textarea>
 
                 <h3 className='text-dark mt-5 this_is'>Preview</h3>
                 <p>{mytext}</p>
