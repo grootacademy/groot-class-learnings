@@ -29,27 +29,26 @@ function TextMenu() {
         window.location.reload();
     }
 
+    const [mytext, setMytext] = useState("");
+
+    function handleText(e) {
+        setMytext(e.target.value);
+    }
+
 
     return (
 
         <>
-            <div className='text-center'>
+            <section className='d-flex align-items-center flex-column p-4' style={{background:"gray"}}>
 
-                {/* <div>a: {a}</div>
+              <textarea  cols="80" rows="7"></textarea>
 
-                <div>b: {b}</div>
-                <div>c: {c}</div> */}
+                <h3 className='text-dark mt-5 this_is'>Preview</h3>
+                <p>{mytext}</p>
 
-                <div>num: {num}</div>
+                <h2>{mytext}</h2>
 
-            </div>
-
-            <div className='d-flex justify-content-center my-5'>
-                {/* <button className='btn btn-info ' onClick={clickHandle}>Click</button> */}
-                <button className='btn btn-info mx-2' onClick={decrease}>Decrease</button>
-                <button className='btn btn-info mx-2' onClick={increase}>Increase</button>
-                <button className='btn btn-info mx-2' onClick={refresh}>Refresh</button>
-            </div>
+            </section>
         </>
 
     )
