@@ -5,7 +5,7 @@ import TextMenu from './components/TextMenu';
 function App() {
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <TextMenu/>
     </>
 

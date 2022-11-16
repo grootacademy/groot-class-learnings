@@ -2,53 +2,66 @@ import { useState } from 'react'
 
 function TextMenu() {
 
-    // let a = "tapan";
-    // let b = "mohan"
-
-    // const [c, setc] = useState("sharma");
-
-    // function clickHandle() {
-    //     a = "is";
-    //     setc("mishra")
-    //     console.log(a)
-    // }
-
-    // Over
-
-    const [num, setNum] = useState(0);
-
-    function increase() {
-        setNum(num + 1);
-    }
-
-    function decrease() {
-        setNum(num - 1);
-    }
-
-    function refresh() {
-        window.location.reload();
-    }
-
-    const [mytext, setMytext] = useState("");
+    const [text, setText] = useState("");
 
     function handleText(e) {
-        setMytext(e.target.value);
+        setText(e.target.value);
     }
 
+    function toUpperCase() {
+        setText(text.toUpperCase());
+    }
+
+    function toLowerCase() {
+        setText(text.toLowerCase());
+    }
+
+    function doClear() {
+        setText("");
+    }
+
+    function doCopy() {
+        navigator.clipboard.writeText(text);
+    }
+
+    function doCut() {
+        navigator.clipboard.writeText(text);
+        setText("");
+    }
+
+    function doDuplicate() {
+        setText(text + text);
+    }
 
     return (
 
         <>
-            <section className='d-flex align-items-center flex-column p-4' style={{background:"gray"}}>
+            <div className='outer'>
+                <section className='sec1'>
+                    <div className='box back_color'>
+                        <h3>Summery</h3>
+                        <p>Charactors: {text.length}</p>
+                        <p>Words: {text.split(" ").length}</p>
+                    </div>
+                    <div className='center_box'>
+                        <button onClick={toUpperCase}>UPPERCASE</button>
+                        <button onClick={toLowerCase}>lowercase</button>
+                        <button onClick={doClear}>Clear</button>
+                        <button onClick={doCopy}>Copy</button>
+                        <button onClick={doCut}>Cut</button>
+                        <button onClick={doDuplicate}>Duplicate</button>
+                     
+                    </div>
+                    <textarea className='box back_color' placeholder='Type Here' value={text} onChange={handleText} />
+                </section>
+            </div>
 
-              <textarea  cols="80" rows="7" onChange={handleText} value={mytext}></textarea>
-
-                <h3 className='text-dark mt-5 this_is'>Preview</h3>
-                <p>{mytext}</p>
-
-                <h2>{mytext}</h2>
-
-            </section>
+            <div className='outer'>
+                <section className='sec1 sec2 '>
+                    <h3>Preview</h3>
+                    <p>{text}</p>
+                </section>
+            </div>
         </>
 
     )
