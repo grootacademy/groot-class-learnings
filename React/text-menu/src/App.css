@@ -80,3 +80,10 @@ textarea:focus-visible{
 .d_color{
     color: white !important;
 }
+
+.my_slider {
+    height: 500px;
+    overflow: hidden;
+    width: 80%;
+    margin: auto;
+}
