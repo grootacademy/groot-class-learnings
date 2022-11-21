@@ -21,15 +21,18 @@ function Navbar(props) {
                 </button>
 
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
+                    <ul className="navbar-nav mr-auto d-flex align-items-center">
                         <li className="nav-item active">
                             <Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/about">About</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/loop">Loop</Link>
+                        </li>
 
-                        <div className="custom-control custom-switch d-flex justify-content-center  ">
+                        <div className="custom-control custom-switch d-flex justify-content-center ml-5 ">
                             <input type="checkbox" className="custom-control-input" id="customSwitches" onChange={toggleDarkMode} />
                             <label className={`custom-control-label ${props.mode == "dark" && "d_color"}`} htmlFor="customSwitches"> {props.mode == "dark" && "Enable Light Mode"}  {props.mode != "dark" && "Enable Dark mode"}  </label>
                         </div>

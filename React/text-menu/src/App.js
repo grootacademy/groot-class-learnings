@@ -5,6 +5,7 @@ import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextMenu from './components/TextMenu';
 import { Routes, Route } from 'react-router';
+import Loop from './components/Loop';
 
 function App() {
 
@@ -25,12 +26,13 @@ function App() {
 
   return (
     <>
-      <Navbar mode={mode}  setMode={setMode}/>
+      <Navbar mode={mode} setMode={setMode} />
       {showAlert && <Alert message={message} />}
 
       <Routes>
-        <Route path='/' element={<TextMenu foralert={foralert} setMessage={setMessage} mode={mode} />}/>
-        <Route path='/about' element={ <About mode={mode} />} />
+        <Route path='/' element={<TextMenu foralert={foralert} setMessage={setMessage} mode={mode} />} />
+        <Route path='/about' element={<About mode={mode} />} />
+        <Route path='/loop' element={<Loop />} />
       </Routes>
 
     </>

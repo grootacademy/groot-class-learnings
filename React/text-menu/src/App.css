@@ -87,3 +87,25 @@ textarea:focus-visible{
     width: 80%;
     margin: auto;
 }
+
+.loop_prt{
+    background: linear-gradient(to right, black, gray);
+    color: white;
+    padding: 20px 40px;
+    border-radius: 10px;
+    width: fit-content;
+  
+    display: flex;
+}
+
+.loop{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background-color: #eae596;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.192);
+    flex-wrap: wrap;
+    gap: 80px;
+}
