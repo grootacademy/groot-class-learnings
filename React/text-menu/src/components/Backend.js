@@ -1,48 +1,49 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 function Backend() {
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState([]);
 
+  // function getData() {
 
+  //   fetch("http://localhost:5057/api/provider/account")
+  //     .then(res => res.json())
+  //     .then(json => {
+  //       setData(json);
+  //     });
+  // }
 
-  function getData() {
+  useEffect(() => {
 
-
-    fetch("url")
+    fetch("http://localhost:5057/api/provider/account")
       .then(res => res.json())
       .then(json => {
-        console.log(json)
         setData(json);
       });
 
+  }, []);
 
-  }
 
-
+  // useEffect(()=>{}, []);
   // fetch().then().then();
 
   return (
     <div>
-      <button onClick={getData}>Backend</button>
+      {/* <button onClick={getData}>Backend</button> */}
 
-      {data?.object?.map((e) => {
-        return <div key={e.id}>
-          <p>Category:- {e.details.category}</p>
-          <p>Name:- {e.details.itemName}</p>
-          <p>Price:-{e.details.price}</p>
-          <p>Status:- {e.details.status}</p>
-          <p>Supplier city:-{e.details.supplier.city}</p>
+      {data.map(e => (
+        <div key={e.id}>
+
+          <p>id:- {e.id}</p>
+          <p>accessKey:- {e.accessKey}</p>
+          <p>accountId:- {e.accountId}</p>
+          <p>cloudType:-{e.cloudType}</p>
+          <p>secretKey:- {e.secretKey}</p>
           <hr />
+
         </div>
-      })
-      }
+      ))}
 
-
-      {/* <div style={{ fontSize: '12px' }}>
-
-        {JSON.stringify(data)}
-      </div> */}
 
     </div>
   )
