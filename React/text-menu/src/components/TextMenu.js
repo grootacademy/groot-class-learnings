@@ -45,7 +45,18 @@ function TextMenu(props) {
         props.foralert();
     }
 
- 
+    function test() {
+
+        // console.log(text.split(" "));
+        console.log(text.split(" ").filter(e => e !== '').length);
+
+        // let arr = [1, 584, 18, 18, 12, 4, 18, 42]
+
+        // console.log(arr)
+        // console.log(arr.filter(e => e < 15));
+
+    }
+
 
     return (
         <>
@@ -56,7 +67,7 @@ function TextMenu(props) {
                         <div className={`box back_color ${props.mode == "dark" && "d_backGround"}`}>
                             <h3>Summery</h3>
                             <p>Charactors: {text.length}</p>
-                            <p>Words: {text.split(" ").length}</p>
+                            <p>Words: {text.split(" ").filter(e => e !== '').length}</p>
                         </div>
                         <div className='center_box '>
                             <button onClick={toUpperCase} className={`${props.mode == "dark" && "d_backGround"}`}>UPPERCASE</button>
@@ -65,6 +76,7 @@ function TextMenu(props) {
                             <button onClick={doCopy} className={`${props.mode == "dark" && "d_backGround"}`}>Copy</button>
                             <button onClick={doCut} className={`${props.mode == "dark" && "d_backGround"}`}>Cut</button>
                             <button onClick={doDuplicate} className={`${props.mode == "dark" && "d_backGround"}`}>Duplicate</button>
+                            <button onClick={test} className={`${props.mode == "dark" && "d_backGround"}`}>Test</button>
                         </div>
                         <textarea className={`box back_color ${props.mode == "dark" && "d_backGround"}`} placeholder='Type Here' value={text} onChange={handleText} />
                     </section>
