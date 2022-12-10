@@ -8,6 +8,7 @@ import { Routes, Route } from 'react-router';
 import Loop from './components/Loop';
 import Backend from './components/Backend';
 import Calculator from './components/Calculator';
+import ImagePreview from './components/ImagePreview';
 
 function App() {
 
@@ -31,13 +32,13 @@ function App() {
       <Navbar mode={mode} setMode={setMode} />
       {showAlert && <Alert message={message} />}
 
-
       <Routes>
         <Route path='/' element={<TextMenu foralert={foralert} setMessage={setMessage} mode={mode} />} />
         <Route path='/about' element={<About mode={mode} />} />
         <Route path='/loop' element={<Loop />} />
         <Route path='/backend' element={<Backend />} />
         <Route path='/calculator' element={<Calculator />} />
+        <Route path='/imagePreview' element={<ImagePreview />} />
       </Routes>
 
     </>
