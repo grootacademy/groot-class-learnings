@@ -1,0 +1,28 @@
+
+.imgLable {
+    width: fit-content;
+    padding: 100px 200px;
+    border-radius: 10px;
+    background-color: rgba(240, 220, 255, 0.469);
+    border: 1px dashed;
+    display: block;
+    margin: 20px auto;
+    color: black;
+    position: relative;
+}
+
+.imgPreview {
+    width: fit-content;
+    margin: 30px auto;
+    border-radius: 20px;   
+    cursor: pointer;
+}
+
+.imgPreview:hover {
+    position: relative;
+    top: -5px;
+}
+
+.imgPreview img {
+    border-radius: 10px;
+}
