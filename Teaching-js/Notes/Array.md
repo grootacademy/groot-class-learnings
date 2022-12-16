@@ -28,7 +28,7 @@ let nums1 = [51, 52 ]
     ```
     ```output1: [3, 4, 5, 6, 7, 8, 9] ```
 
-    ```output2: [3, 4, 5, 6] ```
+    ```output2: [3, 4, 5] ```
 
 3. Slice (It cuts the array)
 

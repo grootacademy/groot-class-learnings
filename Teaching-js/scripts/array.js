@@ -82,18 +82,21 @@ let nums1 = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 // OVER
 
 
-
-
-
-
-
-
-let arr = [12, 34, 12, 51, 15, 21, 8];
-
-for( let i=0; i <= 6; i++){
-   
-    console.log(arr[i]*2);
+function name(params) {
+    
+    nums1.splice(3,4,45,34,2,324,234,32432,4);
+    console.log(nums1)
+    
 }
+
+
+
+// let arr = [12, 34, 12, 51, 15, 21, 8];
+
+// for( let i=0; i <= 6; i++){
+   
+//     console.log(arr[i]*2);
+// }
 
 
 

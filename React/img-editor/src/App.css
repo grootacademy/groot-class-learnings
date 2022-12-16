@@ -1,3 +1,7 @@
+body{
+    background: linear-gradient(to top, rgba(142, 32, 202, 0.83), rgba(255, 255, 255, 0)), url("/public/images/15441995_5605216.jpg");
+    background-size: cover;
+}
 
 .imgLable {
     width: fit-content;
@@ -25,4 +29,23 @@
 
 .imgPreview img {
     border-radius: 10px;
+}
+
+.deleteIcon{
+    background-color: rgba(255, 255, 255, 0.756);
+    padding: 10px;
+    height: fit-content;
+    position: relative;
+    right: 32px;
+    border-radius: 10px;
+    font-size: medium;
+    color: rgb(209, 6, 6);
+    box-shadow: 0 0 20px rgb(50, 50, 50);
+}
+
+.deleteIcon:hover{
+    background-color: white;
+    font-size: large;
+    right: 35px;
+
 }
