@@ -1,13 +1,27 @@
-body{
-    background: linear-gradient(to top, rgba(142, 32, 202, 0.83), rgba(255, 255, 255, 0)), url("/public/images/15441995_5605216.jpg");
+body {
+    background: url("/public/images/WallpaperDog-11027692.jpg");
     background-size: cover;
+    font-family: 'Julius Sans One', sans-serif;
 }
+
+
+/* 
+Light Lime: #abd699
+
+Fresh Lemon: #ffe26a
+
+Teal: #75c9b7
+
+Mint: #c7ddcc
+
+Navy: #16123f */
+
 
 .imgLable {
     width: fit-content;
     padding: 100px 200px;
     border-radius: 10px;
-    background-color: rgba(240, 220, 255, 0.469);
+    background-color: #abd69931;
     border: 1px dashed;
     display: block;
     margin: 20px auto;
@@ -18,7 +32,7 @@ body{
 .imgPreview {
     width: fit-content;
     margin: 30px auto;
-    border-radius: 20px;   
+    border-radius: 20px;
     cursor: pointer;
 }
 
@@ -31,7 +45,7 @@ body{
     border-radius: 10px;
 }
 
-.deleteIcon{
+.deleteIcon {
     background-color: rgba(255, 255, 255, 0.756);
     padding: 10px;
     height: fit-content;
@@ -43,9 +57,38 @@ body{
     box-shadow: 0 0 20px rgb(50, 50, 50);
 }
 
-.deleteIcon:hover{
+.deleteIcon:hover {
     background-color: white;
     font-size: large;
     right: 35px;
+}
 
+.editImage img {
+    max-height: 400px;
+    display: block;
+    margin: auto;
+    border: 20px solid rgba(255, 255, 255, 0.575);
+
+}
+
+.editImage {
+    background: rgba(255, 255, 255, 0.321);
+}
+
+/* 
+Light Lime: #abd699
+
+Fresh Lemon: #ffe26a
+
+Teal: #75c9b7
+
+Mint: #c7ddcc
+
+Navy: #16123f */
+
+
+.heading {
+    background: -webkit-linear-gradient(#18a558, darkblue);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

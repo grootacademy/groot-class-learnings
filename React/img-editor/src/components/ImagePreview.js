@@ -49,7 +49,7 @@ function ImagePreview(props) {
 
   return (
     <>
-      <h3 className='text-center'>Preview</h3>
+      <h2 className='text-center mt-3 heading' style={{fontFamily:"'Monoton', cursive"}}>Preview</h2>
       <input type="file" className='imgLable' id='imgId' onChange={handleImage} /><br />
 
       {images.length !== 0 &&
