@@ -64,7 +64,7 @@ Navy: #16123f */
 }
 
 .editImage img {
-    max-height: 400px;
+    max-height: 500px;
     display: block;
     margin: auto;
     border: 20px solid rgba(255, 255, 255, 0.575);
