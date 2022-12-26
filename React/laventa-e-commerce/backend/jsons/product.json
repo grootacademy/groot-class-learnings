@@ -1,0 +1,65 @@
+[
+    {
+        "id": 1,
+        "name": "Nikon camera v-45",
+        "price": 1000,
+        "imgUrl": "https://m.media-amazon.com/images/I/81WtQ64-SOL._SX355_.jpg",
+        "noOfReviews": 128,
+        "discount": 10,
+        "starRating": 3.5
+    },
+    {
+        "id": 2,
+        "name": "HIGHLANDER Shoes",
+        "price": 796,
+        "noOfReviews": 65,
+        "imgUrl": "https://m.media-amazon.com/images/I/71D9ImsvEtL._UY500_.jpg",
+        "discount": 14,
+        "starRating": 3.5
+    },
+    {
+        "id": 3,
+        "name": "Men Solid Cotton Blend A-line Kurta  (Blue)",
+        "price": 1000,
+        "imgUrl": "https://rukminim1.flixcart.com/image/832/832/l41n2q80/kurta/y/r/w/s-djj21-digimi-original-imagffe4yevfzh5j.jpeg?q=70",
+        "noOfReviews": 128,
+        "discount": 25,
+        "starRating": 3.5
+    },
+    {
+        "id": 4,
+        "name": "Nikon camera v-45",
+        "price": 1000,
+        "imgUrl": "https://m.media-amazon.com/images/I/81WtQ64-SOL._SX355_.jpg",
+        "noOfReviews": 128,
+        "discount": 10,
+        "starRating": 3.5
+    },
+    {
+        "id": 5,
+        "name": "HIGHLANDER Shoes",
+        "price": 796,
+        "noOfReviews": 65,
+        "imgUrl": "https://m.media-amazon.com/images/I/71D9ImsvEtL._UY500_.jpg",
+        "discount": 14,
+        "starRating": 3.5
+    },
+    {
+        "id": 6,
+        "name": "Men Solid Cotton Blend A-line Kurta  (Blue)",
+        "price": 1000,
+        "imgUrl": "https://rukminim1.flixcart.com/image/832/832/l41n2q80/kurta/y/r/w/s-djj21-digimi-original-imagffe4yevfzh5j.jpeg?q=70",
+        "noOfReviews": 128,
+        "discount": 25,
+        "starRating": 3.5
+    },
+    {
+        "id": 7,
+        "name": "Men Solid Cotton Blend A-line Kurta  (Blue)",
+        "price": 1000,
+        "imgUrl": "https://rukminim1.flixcart.com/image/832/832/l41n2q80/kurta/y/r/w/s-djj21-digimi-original-imagffe4yevfzh5j.jpeg?q=70",
+        "noOfReviews": 128,
+        "discount": 25,
+        "starRating": 3.5
+    }
+]
