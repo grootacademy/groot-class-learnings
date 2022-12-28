@@ -1,0 +1,33 @@
+{
+  "applications": ["laventaEcommerce"],
+  "changelogDate": "20221228070647",
+  "clientRootFolder": "laventaEcommerce",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "category",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"],
+      "javadoc": "name"
+    }
+  ],
+  "fluentMethods": true,
+  "javadoc": "The Category entity.\\n@author A true hipster",
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "laventaEcommerce",
+  "name": "Category",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "product",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
