@@ -1,0 +1,43 @@
+application {
+  config {
+    baseName laventaEcommerce
+    applicationType microservice
+    packageName com.laventa.ecommerce
+    authenticationType jwt
+    databaseType sql
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    serverPort 4040
+    serviceDiscoveryType no
+    cacheProvider no
+    enableHibernateCache false
+  }
+entities *
+service * with serviceClass
+}
+
+
+/**
+ * The Category entity.
+ * @author A true hipster
+ */
+entity Category {
+  /** name */
+  name String required
+}
+/**
+ * The Product entity.
+ * @author A true hipster
+ */
+entity Product {
+  /** name */
+  name String required
+    price Integer required
+}
+/**
+ * Many to one relationship.
+ */
+relationship ManyToOne {
+  Product{category} to Category{product}
+}

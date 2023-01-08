@@ -1,0 +1,57 @@
+{
+  "applications": ["laventaEcommerce"],
+  "changelogDate": "20230107163747",
+  "clientRootFolder": "laventaEcommerce",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "offer",
+  "fields": [
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "startingDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "closingDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "percentage",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "laventaEcommerce",
+  "name": "Offer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "offer",
+      "ownerSide": false,
+      "relationshipName": "product",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

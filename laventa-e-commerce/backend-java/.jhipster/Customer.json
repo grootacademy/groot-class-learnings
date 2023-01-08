@@ -1,0 +1,83 @@
+{
+  "applications": ["laventaEcommerce"],
+  "changelogDate": "20230107163147",
+  "clientRootFolder": "laventaEcommerce",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "customer",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "2"
+    },
+    {
+      "fieldName": "email",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "unique", "pattern"],
+      "fieldValidateRulesPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$"
+    },
+    {
+      "fieldName": "password",
+      "fieldType": "String",
+      "fieldValidateRules": ["required", "minlength"],
+      "fieldValidateRulesMinlength": "5"
+    },
+    {
+      "fieldName": "type",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "status",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "profileImg",
+      "fieldType": "byte[]",
+      "fieldTypeBlobContent": "image"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "laventaEcommerce",
+  "name": "Customer",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "customer",
+      "ownerSide": true,
+      "relationshipName": "company",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "cart",
+      "otherEntityRelationshipName": "customer",
+      "ownerSide": true,
+      "relationshipName": "cart",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "customer",
+      "relationshipName": "order",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

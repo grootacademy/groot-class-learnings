@@ -9,6 +9,7 @@ import Loop from './components/Loop';
 import Backend from './components/Backend';
 import Calculator from './components/Calculator';
 import ImagePreview from './components/ImagePreview';
+import Filters from './components/Filters';
 
 function App() {
 
@@ -40,6 +41,8 @@ function App() {
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/imagePreview' element={<ImagePreview />} />
       </Routes>
+
+      {/* <Filters/> */}
 
     </>
 

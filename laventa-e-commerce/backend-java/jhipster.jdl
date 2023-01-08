@@ -1,0 +1,95 @@
+application {
+  config {
+    baseName laventaEcommerce
+    applicationType microservice
+    packageName com.laventa.ecommerce
+    authenticationType jwt
+    databaseType sql
+    prodDatabaseType postgresql
+    devDatabaseType postgresql
+    buildTool maven
+    serverPort 4040
+    serviceDiscoveryType no
+    cacheProvider no
+    enableHibernateCache false
+  }
+entities *
+service * with serviceClass
+}
+
+
+
+entity Customer{
+  name String required minlength(2)
+  email String required unique pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+  password String required minlength(5)
+  type String required
+  status String required
+  createdOn LocalDate required
+  updatedOn LocalDate required
+  profileImg ImageBlob
+}
+entity Order{
+  status String required
+  createdOn LocalDate required
+  updatedOn LocalDate required
+}
+entity Company{
+  name String required
+  email String required unique pattern(/^[^@\s]+@[^@\s]+\.[^@\s]+$/)
+  address String required
+  logo ImageBlob
+  status String required
+  createdOn LocalDate required
+  updatedOn LocalDate required
+}
+entity Category{
+  name String required
+  status String required
+  image ImageBlob
+}
+entity Subcategory{
+  name String required
+  status String required
+  image ImageBlob
+}
+entity Product{
+  name String required
+  price Float required
+  detail String
+  quantity Integer required
+  createdOn LocalDate required
+  updatedOn LocalDate required
+}
+entity Offer{
+  createdOn LocalDate required
+  updatedOn LocalDate required
+  startingDate LocalDate required
+  closingDate LocalDate required
+  percentage String required
+  status String required
+}
+entity Review{
+  discription String required
+  star Integer required min(1) max(5)
+  image ImageBlob
+  createdOn LocalDate required
+  updatedOn LocalDate required
+}
+entity Cart
+
+relationship OneToOne {
+  Customer{company} to Company{customer},
+  Customer{cart} to Cart{customer},
+  Product{offer} to Offer{product}
+}
+
+relationship OneToMany {
+  Customer{order} to Order{customer},
+  Order{product} to Product{order},
+  Company{product} to Product{company},
+  Category{subcategory} to Subcategory{category},
+  Subcategory{product} to Product{subcategory},
+  Product{review} to Review{product},
+  Cart{product} to Product{cart}
+}

@@ -1,0 +1,32 @@
+{
+  "applications": ["laventaEcommerce"],
+  "changelogDate": "20230107163947",
+  "clientRootFolder": "laventaEcommerce",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "cart",
+  "fields": [],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "laventaEcommerce",
+  "name": "Cart",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "product",
+      "otherEntityRelationshipName": "cart",
+      "relationshipName": "product",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "customer",
+      "otherEntityRelationshipName": "cart",
+      "ownerSide": false,
+      "relationshipName": "customer",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,86 @@
+{
+  "applications": ["laventaEcommerce"],
+  "changelogDate": "20230107163647",
+  "clientRootFolder": "laventaEcommerce",
+  "databaseType": "sql",
+  "dto": "no",
+  "embedded": false,
+  "entityTableName": "product",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "price",
+      "fieldType": "Float",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "detail",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "Integer",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "createdOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "updatedOn",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "microserviceName": "laventaEcommerce",
+  "name": "Product",
+  "pagination": "no",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "offer",
+      "otherEntityRelationshipName": "product",
+      "ownerSide": true,
+      "relationshipName": "offer",
+      "relationshipType": "one-to-one"
+    },
+    {
+      "otherEntityName": "review",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "review",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "order",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "order",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "company",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "company",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "subcategory",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "subcategory",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "cart",
+      "otherEntityRelationshipName": "product",
+      "relationshipName": "cart",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceClass"
+}
