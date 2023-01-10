@@ -38,7 +38,7 @@ public class Subcategory implements Serializable {
     @Column(name = "image_content_type")
     private String imageContentType;
 
-    @OneToMany(mappedBy = "subcategory")
+    @OneToMany(mappedBy = "subcategory", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "offer", "reviews", "order", "company", "subcategory", "cart" }, allowSetters = true)
     private Set<Product> products = new HashSet<>();
 

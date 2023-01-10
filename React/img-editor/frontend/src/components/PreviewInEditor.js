@@ -5,6 +5,7 @@ import 'react-toastify/dist/ReactToastify.css';
 export default function PreviewInEditor(props) {
     const notify = () => toast("message", { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.ERROR });;
 
+
     return (
         <>
             <div style={{ width: "80.5%" }}>
@@ -15,11 +16,11 @@ export default function PreviewInEditor(props) {
 
 
                 <div className='shadow-lg p-4 editImage'>
+                    <canvas id="canvas" style={{display:"none"}}></canvas>
                     <img src={props.props.selectedImage} className='rounded shadow-lg' id="image" alt="" />
                 </div>
 
-                <button className="btn btn-primary" onClick={notify}>Toast</button>
-                <ToastContainer />
+               
 
             </div>
         </>

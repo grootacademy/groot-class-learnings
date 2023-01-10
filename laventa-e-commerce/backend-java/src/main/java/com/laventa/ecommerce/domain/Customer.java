@@ -72,7 +72,7 @@ public class Customer implements Serializable {
     @JoinColumn(unique = true)
     private Cart cart;
 
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "products", "customer" }, allowSetters = true)
     private Set<Order> orders = new HashSet<>();
 

@@ -52,7 +52,7 @@ public class Product implements Serializable {
     @JoinColumn(unique = true)
     private Offer offer;
 
-    @OneToMany(mappedBy = "product")
+    @OneToMany(mappedBy = "product", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "product" }, allowSetters = true)
     private Set<Review> reviews = new HashSet<>();
 

@@ -56,7 +56,7 @@ public class Company implements Serializable {
     @Column(name = "updated_on", nullable = false)
     private LocalDate updatedOn;
 
-    @OneToMany(mappedBy = "company")
+    @OneToMany(mappedBy = "company", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "offer", "reviews", "order", "company", "subcategory", "cart" }, allowSetters = true)
     private Set<Product> products = new HashSet<>();
 

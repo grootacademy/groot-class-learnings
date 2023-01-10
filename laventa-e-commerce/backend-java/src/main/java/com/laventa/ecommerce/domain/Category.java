@@ -38,7 +38,7 @@ public class Category implements Serializable {
     @Column(name = "image_content_type")
     private String imageContentType;
 
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnoreProperties(value = { "products", "category" }, allowSetters = true)
     private Set<Subcategory> subcategories = new HashSet<>();
 

@@ -24,7 +24,7 @@ Sidebar
 ----------------*/
 .sidebar {
     position: absolute;
-    width: 17em;
+    width: 18em;
     height: 100%;
     top: 0;
     overflow: hidden;
@@ -46,6 +46,7 @@ Sidebar Nav
 .sidebar-nav {
     position: fixed;
     background-color: #19222aa8;
+    backdrop-filter: blur(10px);
     height: 100%;
     font-weight: 400;
     font-size: 1.2em;
@@ -146,4 +147,53 @@ Sidebar Nav
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     transition: all 0.5s ease;
+}
+
+.download-btn {
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0.085);
+}
+
+.download-btn span {
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.495); */
+    border: 1px dashed rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 5px;
+    display: block;
+    text-align: center;
+}
+
+.icon-s-prt img {
+    height: 30px;
+    margin-right: 10px;
+}
+
+.my-filters-btn {
+    color: rgba(255, 255, 255, 0.681);
+    /* padding: 0; */
+    border: 1px dashed transparent;
+    display: block;
+    margin: 5px auto;
+    filter: blur(1px);
+    transition: all .5s;
+    
+}
+
+.my-filters-btn:hover {
+    color: white;
+    border: 1px dashed white;
+    filter: blur(0px);
+    backdrop-filter: blur(2px);
+    font-weight: bold;
+}
+
+.my-filters-btn p{
+    margin-bottom: 0;
+}
+
+.my-filters-btn .sec{
+    width: 45px;
+    border-left: 1px solid red;
+    padding-left: 8px;
 }
