@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify';
 import "../styles/sidebar.css"
 
@@ -16,78 +16,63 @@ export default function Sidebar() {
     });
 
     const [filterStringState, setfilterStringState] = useState("")
-    function handleEdit(e) {
+
+    const saturation = useRef();
+    const brightness = useRef();
+    const grayscale = useRef();
+    const hue = useRef();
+    const blur = useRef();
+    const contrast = useRef();
+    const sepia = useRef();
+
+    // Handle inputs getting from range buttons
+    function handleFilterInputChange(e) {
 
         let value = (e.target.value / 100 * 3).toFixed(3);
-        let element = document.getElementById('image').style;
-        let element2 = document.getElementById('image');
 
-        // for canvas
         if (e.target.name === "saturation") {
-
-            // element.filter = `saturate(${value})`;
-            setCountValues({ ...countValues, saturation: value });
+            handleUpdateCountState("saturation", value)
 
         } else if (e.target.name === "brightness") {
-
-            // element.filter = `brightness(${value})`;
-            setCountValues({ ...countValues, brightness: value });
+            handleUpdateCountState("brightness", value)
 
         }
         else if (e.target.name === "grayscale") {
-
             let value = (e.target.value / 100).toFixed(3);
-            // element.filter = `grayscale(${value})`;
-            setCountValues({ ...countValues, grayscale: value });
+            handleUpdateCountState("grayscale", value)
 
         }
         else if (e.target.name === "hue") {
-
             let value = (e.target.value / 100 * 360).toFixed(0);
-            // element.filter = `hue-rotate(${value}deg)`;
-            setCountValues({ ...countValues, hue: value });
+            handleUpdateCountState("hue", value)
 
         }
         else if (e.target.name === "blur") {
 
             let value = (e.target.value / 100 * 10).toFixed(3);
-            // element.filter = `blur(${value}px)`;
-            setCountValues({ ...countValues, blur: value });
+            handleUpdateCountState("blur", value)
 
         }
         else if (e.target.name === "contrast") {
-
             let value = (e.target.value / 100 * 3).toFixed(3);
-            // element.filter = `contrast(${value})`;
-            setCountValues({ ...countValues, contrast: value });
+            handleUpdateCountState("contrast", value)
 
         }
         else if (e.target.name === "sepia") {
-
             let value = (e.target.value / 100).toFixed(3);
-            // element.filter = `sepia(${value})`;
-            setCountValues({ ...countValues, sepia: value });
+            handleUpdateCountState("sepia", value)
 
         }
-        else if (e.target.name === "invert") {
-
-            if (countValues.invert) {
-                // element.filter = `invert(0)`;
-                setCountValues({ ...countValues, invert: false, invertValue: 0 });
-            } else {
-                // element.filter = `invert(1)`;
-                setCountValues({ ...countValues, invert: true, invertValue: 1 });
-            }
-
-        }
-
-        const finalFilter = getFinalFilterString()
-        setfilterStringState(finalFilter);
-        element.filter = finalFilter
 
     }
 
-    function getFinalFilterString() {
+    // Putting values in state
+    function handleUpdateCountState(filterType, value) {
+        setCountValues({ ...countValues, [filterType]: value });
+    }
+
+    // create filter string and execute filter
+    function executeFilter() {
         let { saturation, brightness, grayscale, hue, blur, contrast, sepia, invertValue } = countValues
 
         let finalFilter = `${saturation ? `saturate(${saturation})` : ``} 
@@ -99,7 +84,12 @@ export default function Sidebar() {
                            ${sepia ? `sepia(${sepia})` : ``}
                            ${invertValue ? `invert(${invertValue})` : ``}
                             `
-        return finalFilter
+
+        // Execute filter
+        document.getElementById('image').style.filter = finalFilter
+
+        // Filter string for download image
+        setfilterStringState(finalFilter);
     }
 
     function download() {
@@ -107,7 +97,6 @@ export default function Sidebar() {
         let canvas = document.getElementById('canvas');
         let ctx = canvas.getContext('2d');
 
-        // console.log(filterStringState)
         ctx.canvas.width = (element.offsetWidth * 3)
         ctx.canvas.height = (element.offsetHeight * 3)
 
@@ -122,13 +111,59 @@ export default function Sidebar() {
 
     };
 
+    // For resetting values
     const handleReset = (e) => {
 
-        console.log(e)
         if (e === "saturation") {
-            setCountValues({ ...countValues, saturation: 1.000 })
+
+            setCountValues({ ...countValues, saturation: 1 });
+            saturation.current.value = 33.33
+
+        }
+        else if (e === "brightness") {
+
+            setCountValues({ ...countValues, brightness: 1 });
+            brightness.current.value = 33.33
+
+        }
+        else if (e === "grayscale") {
+
+            setCountValues({ ...countValues, grayscale: 0 });
+            grayscale.current.value = 0
+
+        }
+        else if (e === "hue") {
+
+            setCountValues({ ...countValues, hue: 0 });
+            hue.current.value = 0
+
+        }
+        else if (e === "blur") {
+
+            setCountValues({ ...countValues, blur: 0 });
+            blur.current.value = 0
+
+        }
+        else if (e === "contrast") {
+
+            setCountValues({ ...countValues, contrast: 1 });
+            contrast.current.value = 33.33
+
+        }
+        else if (e === "sepia") {
+
+            setCountValues({ ...countValues, sepia: 0 });
+            sepia.current.value = 0
+
         }
     }
+
+    useEffect(() => {
+        executeFilter()
+    }, [countValues])
+
+
+
     const notify = () => toast("Downloaded successfully", { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
 
     return (
@@ -153,7 +188,7 @@ export default function Sidebar() {
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
                                                 <p> <img src="images/icons/icons8-saturation-48.png" height="25px" alt="" /> Saturation</p>
-                                                <input type="range" name='saturation' defaultValue="33.33" onChange={handleEdit} />
+                                                <input type="range" name='saturation' ref={saturation} defaultValue="33.33" onChange={handleFilterInputChange} />
                                             </div>
                                             <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.saturation}</p>
@@ -165,10 +200,12 @@ export default function Sidebar() {
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
                                                 <p> <img src="images/icons/icons8-sun-48.png" height="25px" alt="" />Brightness</p>
-                                                <input type="range" name='brightness' defaultValue="33.33" onChange={handleEdit} />
+                                                <input type="range" name='brightness' ref={brightness} defaultValue="33.33" onChange={handleFilterInputChange} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.brightness}</p>
+                                                <span title='reset' onClick={() => handleReset("brightness")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                             </div>
                                         </div>
                                     </li>
@@ -176,11 +213,13 @@ export default function Sidebar() {
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
                                                 <p><img src="images/icons/grayscale.png" height="25px" alt="" /> Grayscale</p>
-                                                <input type="range" name='grayscale' defaultValue="0" onChange={handleEdit} />
+                                                <input type="range" name='grayscale' ref={grayscale} defaultValue="0" onChange={handleFilterInputChange} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
 
                                                 <p>{countValues.grayscale}</p>
+                                                <span title='reset' onClick={() => handleReset("grayscale")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                             </div>
                                         </div>
                                     </li>
@@ -188,20 +227,24 @@ export default function Sidebar() {
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
                                                 <p> <img src="images/icons/icons8-color-palette-48.png" height="25px" alt="" /> Hue</p>
-                                                <input type="range" name='hue' defaultValue="0" onChange={handleEdit} />
+                                                <input type="range" name='hue' ref={hue} defaultValue="0" onChange={handleFilterInputChange} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
                                                 {countValues.hue && <p>{countValues.hue} deg</p>}
+                                                <span title='reset' onClick={() => handleReset("hue")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                             </div>
                                         </div>
                                     </li>
                                     <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                         <div>
                                             <p> <img src="images/icons/icons8-blur-48.png" height="25px" alt="" />Blur</p>
-                                            <input type="range" name='blur' defaultValue="0" onChange={handleEdit} />
+                                            <input type="range" name='blur' ref={blur} defaultValue="0" onChange={handleFilterInputChange} />
                                         </div>
-                                        <div className='d-flex align-items-center ml-3 sec'>
+                                        <div className='d-flex flex-column justify-content-around sec'>
                                             <p>{countValues.blur} </p>
+                                            <span title='reset' onClick={() => handleReset("blur")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                         </div>
                                     </div>
                                     <li>
@@ -209,10 +252,12 @@ export default function Sidebar() {
                                             <div>
 
                                                 <p><img src="images/icons/icons8-contrast-64.png" height="25px" alt="" />Contrast</p>
-                                                <input type="range" name='contrast' defaultValue="33.33" onChange={handleEdit} />
+                                                <input type="range" name='contrast' ref={contrast} defaultValue="33.33" onChange={handleFilterInputChange} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.contrast} </p>
+                                                <span title='reset' onClick={() => handleReset("contrast")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                             </div>
                                         </div>
                                     </li>
@@ -221,10 +266,12 @@ export default function Sidebar() {
                                             <div>
 
                                                 <p><img src="images/icons/icons8-old-fashioned-family-photo-48.png" height="25px" alt="" /> Sepia</p>
-                                                <input type="range" name='sepia' defaultValue="0" onChange={handleEdit} />
+                                                <input type="range" name='sepia' ref={sepia} defaultValue="0" onChange={handleFilterInputChange} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.sepia} </p>
+                                                <span title='reset' onClick={() => handleReset("sepia")}><img src="/images/icons/loading.png" alt="" /></span>
+
                                             </div>
                                         </div>
                                     </li>
