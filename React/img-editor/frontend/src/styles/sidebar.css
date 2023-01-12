@@ -177,7 +177,7 @@ Sidebar Nav
     margin: 5px auto;
     filter: blur(1px);
     transition: all .5s;
-    
+
 }
 
 .my-filters-btn:hover {
@@ -188,12 +188,29 @@ Sidebar Nav
     font-weight: bold;
 }
 
-.my-filters-btn p{
+.my-filters-btn p {
     margin-bottom: 0;
 }
 
-.my-filters-btn .sec{
-    width: 45px;
+.my-filters-btn .sec {
     border-left: 1px solid red;
-    padding-left: 8px;
+    padding-left: 15px;
+    width: 50px;
 }
+
+.my-filters-btn p {
+    font-size: 12px;
+}
+
+.my-filters-btn span img {
+    height: 20px;
+    border-radius: 100px;
+    box-shadow: 0px 0px 20px -5px white;
+    cursor: pointer;
+    transform: rotateY(180deg);
+}
+
+
+
+
+/*  */

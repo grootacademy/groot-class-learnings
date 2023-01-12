@@ -92,7 +92,7 @@ function ImagePreview(props) {
       .then(data => {
         notify("Image deleted successfully")
         console.log(data)
-    setFirst(first + 1);
+        setFirst(first + 1);
 
       })
       .catch(err => {

@@ -16,6 +16,7 @@ function ImageEditor(props) {
                 <PreviewInEditor props={props} />
 
             </div>
+            
         </>
     )
 }

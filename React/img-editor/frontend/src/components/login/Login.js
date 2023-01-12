@@ -38,7 +38,6 @@ function Login() {
     const notify = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
     const notifyErr = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.ERROR });;
 
-
     return (
         <>
             {/* <!-- Section: Design Block --> */}

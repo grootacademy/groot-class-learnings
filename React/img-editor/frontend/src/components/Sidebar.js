@@ -5,13 +5,13 @@ import "../styles/sidebar.css"
 export default function Sidebar() {
 
     const [countValues, setCountValues] = useState({
-        saturation: null,
-        brightness: null,
-        grayscale: null,
-        hue: null,
-        blur: null,
-        contrast: null,
-        sepia: null,
+        saturation: 1.000,
+        brightness: 1.000,
+        grayscale: 0.000,
+        hue: 0.000,
+        blur: 0.000,
+        contrast: 1.000,
+        sepia: 0.000,
         invert: false
     });
 
@@ -50,21 +50,21 @@ export default function Sidebar() {
         }
         else if (e.target.name === "blur") {
 
-            let value = (e.target.value / 100 * 10).toFixed(2);
+            let value = (e.target.value / 100 * 10).toFixed(3);
             // element.filter = `blur(${value}px)`;
             setCountValues({ ...countValues, blur: value });
 
         }
         else if (e.target.name === "contrast") {
 
-            let value = (e.target.value / 100 * 3).toFixed(2);
+            let value = (e.target.value / 100 * 3).toFixed(3);
             // element.filter = `contrast(${value})`;
             setCountValues({ ...countValues, contrast: value });
 
         }
         else if (e.target.name === "sepia") {
 
-            let value = (e.target.value / 100).toFixed(2);
+            let value = (e.target.value / 100).toFixed(3);
             // element.filter = `sepia(${value})`;
             setCountValues({ ...countValues, sepia: value });
 
@@ -121,6 +121,14 @@ export default function Sidebar() {
         notify()
 
     };
+
+    const handleReset = (e) => {
+
+        console.log(e)
+        if (e === "saturation") {
+            setCountValues({ ...countValues, saturation: 1.000 })
+        }
+    }
     const notify = () => toast("Downloaded successfully", { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
 
     return (
@@ -147,16 +155,15 @@ export default function Sidebar() {
                                                 <p> <img src="images/icons/icons8-saturation-48.png" height="25px" alt="" /> Saturation</p>
                                                 <input type="range" name='saturation' defaultValue="33.33" onChange={handleEdit} />
                                             </div>
-                                            <div className='d-flex align-items-center ml-3 sec'>
+                                            <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.saturation}</p>
+                                                <span title='reset' onClick={() => handleReset("saturation")}><img src="/images/icons/loading.png" alt="" /></span>
                                             </div>
                                         </div>
                                     </li>
                                     <li>
-
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
-
                                                 <p> <img src="images/icons/icons8-sun-48.png" height="25px" alt="" />Brightness</p>
                                                 <input type="range" name='brightness' defaultValue="33.33" onChange={handleEdit} />
                                             </div>
@@ -168,7 +175,6 @@ export default function Sidebar() {
                                     <li>
                                         <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
                                             <div>
-
                                                 <p><img src="images/icons/grayscale.png" height="25px" alt="" /> Grayscale</p>
                                                 <input type="range" name='grayscale' defaultValue="0" onChange={handleEdit} />
                                             </div>
