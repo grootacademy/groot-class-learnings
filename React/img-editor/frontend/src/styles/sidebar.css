@@ -214,3 +214,29 @@ Sidebar Nav
 
 
 /*  */
+
+input[type="range"] {
+    -webkit-appearance: none;
+    /* margin-right: 15px; */
+    /* width: 200px; */
+    height: 1px;
+    /* background: rgba(255, 255, 255, 0.6); */
+    /* border-radius: 5px; */
+    background-image: linear-gradient(to right, #ffffff, #00e5ff, #ffffff);
+    /* background-size: 70% 100%; */
+    /* background-repeat: no-repeat; */
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 20px;
+    width: 1px;
+    background: #00e5ff;
+    cursor: pointer;
+    box-shadow: 0 0 20px 1px black;
+}
+
+.longRange input[type="range"] {
+    width: 90%;
+    margin-left: 10%;
+}

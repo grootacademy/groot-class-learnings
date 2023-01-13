@@ -75,14 +75,17 @@ Navy: #16123f */
 
 .editImage img {
     max-height: 500px;
-    display: block;
-    margin: auto;
     border: 20px solid rgba(255, 255, 255, 0.575);
 
 }
 
 .editImage {
     background: rgba(255, 255, 255, 0.321);
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px ;
 }
 
 /* 
@@ -113,3 +116,5 @@ Navy: #16123f */
     box-shadow: 15px 15px 30px -5px rgba(220, 220, 220, 0.713) inset, 10px 10px 30px -5px rgb(176, 176, 176);
     cursor: pointer;
 }
+
+

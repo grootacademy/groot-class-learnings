@@ -94,7 +94,7 @@ export default function Sidebar() {
 
     function download() {
         let element = document.getElementById('image');
-        let canvas = document.getElementById('canvas');
+        let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
 
         ctx.canvas.width = (element.offsetWidth * 3)
@@ -105,11 +105,30 @@ export default function Sidebar() {
 
         var link = document.createElement('a');
         link.download = 'edited-image.png';
-        link.href = document.getElementById('canvas').toDataURL()
+        link.href = canvas.toDataURL()
         link.click();
         notify()
 
     };
+
+    function downloadResized() {
+        let element = document.getElementById('image');
+        let canvas = document.createElement('canvas');
+        let ctx = canvas.getContext('2d');
+
+
+        ctx.canvas.width = (element.offsetWidth)
+        ctx.canvas.height = (element.offsetHeight)
+
+        ctx.filter = filterStringState;
+        ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
+
+        var link = document.createElement('a');
+        link.download = 'edited-image.png';
+        link.href = canvas.toDataURL()
+        link.click();
+        notify()
+    }
 
     // For resetting values
     const handleReset = (e) => {
@@ -164,6 +183,24 @@ export default function Sidebar() {
 
 
 
+    function handleCropInputChange(e) {
+        let element = document.getElementById('image');
+        document.getElementById('img-prt').style.display = 'none';
+
+        let canvas = document.getElementById('canvas1')
+        canvas.style.display = "inline-block"
+        let ctx = canvas.getContext('2d');
+
+
+        ctx.canvas.width = (element.width/200) * e.target.value
+        ctx.canvas.height = (element.height/200) * e.target.value
+
+        ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
+
+        let prtElement = document.getElementById("img-prt")
+    }
+
+
     const notify = () => toast("Downloaded successfully", { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
 
     return (
@@ -189,6 +226,110 @@ export default function Sidebar() {
                                             <div>
                                                 <p> <img src="images/icons/icons8-saturation-48.png" height="25px" alt="" /> Saturation</p>
                                                 <input type="range" name='saturation' ref={saturation} defaultValue="33.33" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+                                                <p>{countValues.saturation}</p>
+                                                <span title='reset' onClick={() => handleReset("saturation")}><img src="/images/icons/loading.png" alt="" /></span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+                                                <p> <img src="images/icons/icons8-sun-48.png" height="25px" alt="" />Brightness</p>
+                                                <input type="range" name='brightness' ref={brightness} defaultValue="33.33" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+                                                <p>{countValues.brightness}</p>
+                                                <span title='reset' onClick={() => handleReset("brightness")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+                                                <p><img src="images/icons/grayscale.png" height="25px" alt="" /> Grayscale</p>
+                                                <input type="range" name='grayscale' ref={grayscale} defaultValue="0" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+
+                                                <p>{countValues.grayscale}</p>
+                                                <span title='reset' onClick={() => handleReset("grayscale")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+                                                <p> <img src="images/icons/icons8-color-palette-48.png" height="25px" alt="" /> Hue</p>
+                                                <input type="range" name='hue' ref={hue} defaultValue="0" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+                                                {countValues.hue && <p>{countValues.hue} deg</p>}
+                                                <span title='reset' onClick={() => handleReset("hue")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                        <div>
+                                            <p> <img src="images/icons/icons8-blur-48.png" height="25px" alt="" />Blur</p>
+                                            <input type="range" name='blur' ref={blur} defaultValue="0" onChange={handleFilterInputChange} />
+                                        </div>
+                                        <div className='d-flex flex-column justify-content-around sec'>
+                                            <p>{countValues.blur} </p>
+                                            <span title='reset' onClick={() => handleReset("blur")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                        </div>
+                                    </div>
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+
+                                                <p><img src="images/icons/icons8-contrast-64.png" height="25px" alt="" />Contrast</p>
+                                                <input type="range" name='contrast' ref={contrast} defaultValue="33.33" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+                                                <p>{countValues.contrast} </p>
+                                                <span title='reset' onClick={() => handleReset("contrast")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+
+                                                <p><img src="images/icons/icons8-old-fashioned-family-photo-48.png" height="25px" alt="" /> Sepia</p>
+                                                <input type="range" name='sepia' ref={sepia} defaultValue="0" onChange={handleFilterInputChange} />
+                                            </div>
+                                            <div className='d-flex flex-column justify-content-around sec'>
+                                                <p>{countValues.sepia} </p>
+                                                <span title='reset' onClick={() => handleReset("sepia")}><img src="/images/icons/loading.png" alt="" /></span>
+
+                                            </div>
+                                        </div>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                            {/* crop and resize */}
+                            <li>
+                                <a href="#" className='icon-s-prt'>
+                                    <i className="ion-bag"></i>
+                                    <img src="/images/icons/icons8-paint-palette-94.png" alt="" />
+                                    <span>Resize & crop</span>
+                                    <img style={{ float: "right", marginTop: "5px" }} src="/images/icons/icons8-right-94.png" alt="" />
+                                </a>
+                                <ul className="nav-flyout overflow-auto">
+                                    <li>
+                                        <div className='btn my-filters-btn mx-2 d-flex justify-content-between'>
+                                            <div>
+                                                <p> <img src="images/icons/icons8-saturation-48.png" height="25px" alt="" /> Percentage</p>
+                                                <input type="range" name='percentageSize' defaultValue="50" onChange={handleCropInputChange} />
                                             </div>
                                             <div className='d-flex flex-column justify-content-around sec'>
                                                 <p>{countValues.saturation}</p>
@@ -376,6 +517,9 @@ export default function Sidebar() {
                             </li> */}
                             <li>
                                 <a onClick={download} className="download-btn mt-5 icon-s-prt shadow-lg" > <span className=""><img src="images/icons/icons8-download-94.png" alt="" />Download image</span></a>
+                            </li>
+                            <li>
+                                <a onClick={downloadResized} className="download-btn mt-5 icon-s-prt shadow-lg" > <span className=""><img src="images/icons/icons8-download-94.png" alt="" />Download resized image</span></a>
                             </li>
                         </ul>
                     </nav>
