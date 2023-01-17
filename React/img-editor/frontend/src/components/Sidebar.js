@@ -183,22 +183,22 @@ export default function Sidebar() {
 
 
 
-    function handleCropInputChange(e) {
-        let element = document.getElementById('image');
-        document.getElementById('img-prt').style.display = 'none';
+    // function handleCropInputChange(e) {
+    //     let element = document.getElementById('image');
+    //     document.getElementById('img-prt').style.display = 'none';
 
-        let canvas = document.getElementById('canvas1')
-        canvas.style.display = "inline-block"
-        let ctx = canvas.getContext('2d');
+    //     let canvas = document.getElementById('canvas1')
+    //     canvas.style.display = "inline-block"
+    //     let ctx = canvas.getContext('2d');
 
 
-        ctx.canvas.width = (element.width/200) * e.target.value
-        ctx.canvas.height = (element.height/200) * e.target.value
+    //     ctx.canvas.width = (element.width/200) * e.target.value
+    //     ctx.canvas.height = (element.height/200) * e.target.value
 
-        ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
+    //     ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
 
-        let prtElement = document.getElementById("img-prt")
-    }
+    //     let prtElement = document.getElementById("img-prt")
+    // }
 
 
     const notify = () => toast("Downloaded successfully", { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
@@ -317,7 +317,7 @@ export default function Sidebar() {
                             </li>
 
                             {/* crop and resize */}
-                            <li>
+                            {/* <li>
                                 <a href="#" className='icon-s-prt'>
                                     <i className="ion-bag"></i>
                                     <img src="/images/icons/icons8-paint-palette-94.png" alt="" />
@@ -418,7 +418,7 @@ export default function Sidebar() {
                                     </li>
 
                                 </ul>
-                            </li>
+                            </li> */}
                             {/* <li>
                                 <a href="#"><i className="ion-ios-settings"></i> <span className="">Controls</span></a>
                                 <ul className="nav-flyout">

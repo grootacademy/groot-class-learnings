@@ -1,6 +1,6 @@
 body {
-    background: linear-gradient(transparent,transparent, #4d6f65), url("/public/images/WallpaperDog-11027692.jpg"), #587c72;
-    background-size: 100% ;
+    background: linear-gradient(transparent, transparent, #4d6f65), url("/public/images/WallpaperDog-11027692.jpg"), linear-gradient(to right, #6b8981, #527069,#527069, #688b7f, #678a7f, #4d6f65);
+    background-size: 100%;
     font-family: 'Julius Sans One', sans-serif;
     background-repeat: no-repeat;
 }
@@ -32,7 +32,7 @@ Navy: #16123f */
     transition: all 0.5s;
 }
 
-.imgLable:hover{
+.imgLable:hover {
     backdrop-filter: blur(5px);
 
 }
@@ -81,11 +81,11 @@ Navy: #16123f */
 
 .editImage {
     background: rgba(255, 255, 255, 0.321);
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 500px ;
+    /* height: 500px; */
 }
 
 /* 
@@ -116,5 +116,3 @@ Navy: #16123f */
     box-shadow: 15px 15px 30px -5px rgba(220, 220, 220, 0.713) inset, 10px 10px 30px -5px rgb(176, 176, 176);
     cursor: pointer;
 }
-
-
