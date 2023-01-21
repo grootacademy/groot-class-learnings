@@ -1,50 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { authActionSignup } from '../redux/actions/auth.action'
 import "./login/login.css"
 
 function SignUp() {
 
+    let errors = useSelector(e => e.allStates.signupErr.errors)
+    const dispatch = useDispatch()
+
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errors, setErrors] = useState([])
+    const [traceSubmit, setTraceSubmit] = useState(0)
     const navigate = useNavigate()
 
-    const handleSignup = async (e) => {
-        e.preventDefault();
-
-        const response = await fetch("http://localhost:3003/api/auth/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                password: password
-            })
-        })
-        const data = await response.json()
-
-        if (data.email) {
-            navigate("/login")
-            notify("Created account successfully")
-            notify("Please, Login here")
-        } else {
-            setErrors(data.errors)
-            notifyErr("Something went wrong")
-        }
+    const handleSignup = (e) => {
+        e.preventDefault()
+        dispatch(authActionSignup({ name, email, password }))
+        setTraceSubmit(traceSubmit + 1)
     }
 
-    const notify = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
-    const notifyErr = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.ERROR });;
+    useEffect(() => {
+        if (traceSubmit > 0 && errors.length == 0) {
+            navigate("/login")
+        }
+    }, [traceSubmit, errors])
+
 
 
     return (
         <>
             {/* <!-- Section: Design Block --> */}
-            <section className="background-radial-gradient overflow-hidden">
+            <section className="background-radial-gradient overflow-hidden myAuth">
 
                 <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
                     <div className="row gx-lg-5 align-items-center mb-5">
@@ -98,8 +87,8 @@ function SignUp() {
                                     </form>
                                     {/* error */}
 
-                                    {errors.map(e => (
-                                        <p className='text-danger text-left m-0'>
+                                    {errors.map((e, i) => (
+                                        <p className='text-danger text-left m-0' key={i}>
                                             <img src="https://img.icons8.com/color/48/null/break--v4.png" height="20px" className='mx-2' />{e.msg}
                                         </p>
 

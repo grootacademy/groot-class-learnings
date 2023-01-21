@@ -1,14 +1,15 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { render } from 'react-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { baseUrl } from '../config';
+import { imageAction } from '../redux/actions/image.Action';
 import Spinner from './Spinner';
 
-
 function ImagePreview(props) {
-
+  
   const userId = JSON.parse(localStorage.getItem("my-image-editor"))?._id
 
   const [images, setImage] = useState([]);
@@ -145,6 +146,7 @@ function ImagePreview(props) {
   return (
     <>
 
+      
       <div className='d-flex justify-content-end'>
         <button className='btn btn-info m-3 shadow' onClick={logoutBtn}><img height="25px" src="/images/icons/icons8-logout-rounded-left-60.png" alt="" />Logout</button>
       </div>

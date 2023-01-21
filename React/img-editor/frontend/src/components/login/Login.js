@@ -1,47 +1,32 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import { authActionLogin } from '../../redux/actions/auth.action'
+import { notify } from '../utils/toast'
 import "./login.css"
 
 function Login() {
 
+    let errors = useSelector(e => e.allStates.loginErr.errors)
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
-    const [errors, setErrors] = useState([])
-    const navigate = useNavigate();
 
-    const handleSignup = async (e) => {
-        e.preventDefault();
 
-        const response = await fetch("http://localhost:3003/api/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                email: email.toLowerCase(),
-                password: password
-            })
-        })
-        const data = await response.json()
-
-        if (data.email) {
-            localStorage.setItem("my-image-editor", JSON.stringify(data))
-            notify("Welcome to the editor")
-            navigate("/")
-        } else {
-            setErrors(data.errors)
-            notifyErr("Something went wrong")
-        }
+    const handleLogin = (e) => {
+        e.preventDefault()
+        dispatch(authActionLogin({ email, password }))
     }
 
-    const notify = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.SUCCESS });;
-    const notifyErr = (message) => toast(message, { containerId: 'TOP_RIGHT', autoClose: 5000, type: toast.TYPE.ERROR });;
+    
 
     return (
         <>
             {/* <!-- Section: Design Block --> */}
-            <section className="background-radial-gradient overflow-hidden">
+            <section className="background-radial-gradient overflow-hidden myAuth">
 
                 <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
                     <div className="row gx-lg-5 align-items-center mb-5">
@@ -81,13 +66,13 @@ function Login() {
 
 
                                         {/* <!-- Submit button --> */}
-                                        <button type="submit" onClick={handleSignup} className="btn btn-primary btn-block mb-4 w-100">
+                                        <button type="submit" onClick={handleLogin} className="btn btn-primary btn-block mb-4 w-100">
                                             Login
                                         </button>
 
                                     </form>
-                                    {errors.map(e => (
-                                        <p className='text-center text-danger m-0'>
+                                    {errors.map((e, i) => (
+                                        <p className='text-center text-danger m-0' key={i}>
                                             <img src="https://img.icons8.com/color/48/null/break--v4.png" height="30px" className='mx-2' />{e.msg}
                                         </p>
                                     ))}
