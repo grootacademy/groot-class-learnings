@@ -97,8 +97,8 @@ export default function Sidebar() {
         let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
 
-        ctx.canvas.width = (element.offsetWidth * 3)
-        ctx.canvas.height = (element.offsetHeight * 3)
+        ctx.canvas.width = (element.offsetWidth * element.style.zoom * 1.5)
+        ctx.canvas.height = (element.offsetHeight * element.style.zoom* 1.5)
 
         ctx.filter = filterStringState;
         ctx.drawImage(element, 0, 0, canvas.width, canvas.height);

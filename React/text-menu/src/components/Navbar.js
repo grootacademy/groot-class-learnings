@@ -40,6 +40,9 @@ function Navbar(props) {
                         <li className="nav-item">
                             <Link className="nav-link" to="/imagePreview">Image Preview</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/mySlider">Image Preview</Link>
+                        </li>
 
                         <div className="custom-control custom-switch d-flex justify-content-center ml-5 ">
                             <input type="checkbox" className="custom-control-input" id="customSwitches" onChange={toggleDarkMode} />

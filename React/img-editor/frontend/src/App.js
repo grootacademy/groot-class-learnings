@@ -1,4 +1,3 @@
-import './App.css';
 import ImagePreview from './components/ImagePreview';
 import ImageEditor from './components/ImageEditor';
 import Login from "./components/login/Login";
@@ -7,13 +6,10 @@ import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { Route, Routes } from 'react-router-dom';
 import Spinner from './components/Spinner';
-import { useDispatch, useSelector } from 'react-redux';
-import { authActionLogin } from './redux/actions/auth.action';
-import { loginService } from './redux/services/auth.service';
+import './App.css';
 
 function App() {
 
-  
   const [selectedImage, setSelectedImage] = useState("")
 
   const [loadingFlag, setLoadingFlag] = useState(true)

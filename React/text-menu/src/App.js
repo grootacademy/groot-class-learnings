@@ -10,6 +10,7 @@ import Backend from './components/Backend';
 import Calculator from './components/Calculator';
 import ImagePreview from './components/ImagePreview';
 import Filters from './components/Filters';
+import MySlider from './components/MySlider';
 
 function App() {
 
@@ -40,6 +41,7 @@ function App() {
         <Route path='/backend' element={<Backend />} />
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/imagePreview' element={<ImagePreview />} />
+        <Route path='/mySlider' element={<MySlider />} />
       </Routes>
 
       {/* <Filters/> */}

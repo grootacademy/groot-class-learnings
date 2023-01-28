@@ -1,4 +1,5 @@
 import { loginService, signupService } from "../services/auth.service"
+import dispatchFunction from "./dispatchFunction"
 
 // Action for login
 export const authActionLogin = (data) => {
@@ -19,9 +20,3 @@ export const authActionSignup = (data) => {
 }
 
 
-function dispatchFunction(data) {
-    return {
-        type: "a",
-        payload: data
-    }
-}

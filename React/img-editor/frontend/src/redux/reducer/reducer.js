@@ -5,9 +5,9 @@ const initialState = {
     },
     signupErr: {
         errors: []
-    }
+    },
+    // allImages: []
 }
 export const myreducer = (state = initialState, { payload }) => {
-    console.log("reducer")
     return { ...state, ...payload }
 }

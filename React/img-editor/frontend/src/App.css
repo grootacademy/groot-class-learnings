@@ -1,5 +1,5 @@
 body {
-    background: linear-gradient(transparent, transparent, #4d6f65), url("/public/images/WallpaperDog-11027692.jpg"), linear-gradient(to right, #6b8981, #527069,#527069, #688b7f, #678a7f, #4d6f65);
+    background: url("/public/images/WallpaperDog-11027692.jpg"), linear-gradient(to right, #6b8981, #527069, #527069, #688b7f, #678a7f, #4d6f65);
     background-size: 100%;
     font-family: 'Julius Sans One', sans-serif;
     background-repeat: no-repeat;
@@ -85,7 +85,7 @@ Navy: #16123f */
     display: flex;
     justify-content: center;
     align-items: center;
-    /* height: 500px; */
+    height: 545px;
 }
 
 /* 
@@ -117,3 +117,45 @@ Navy: #16123f */
     cursor: pointer;
 }
 
+.resizeInput {
+    padding-top: 30px;
+    height: 95px;
+    box-shadow: 0 0 80px -5px rgb(0, 0, 0) inset;
+    /* border-radius: 10px; */
+}
+
+.resizeInput input[type="range"] {
+    -webkit-appearance: none;
+    width: 99%;
+    margin-top: 10px;
+    height: 5px;
+    background-image: linear-gradient(to right, #4a4a4a, #000000, #4a4a4a);
+    border-radius: 100px;
+}
+
+.resizeInput input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 35px;
+    width: 5px;
+    background: #c5c5c5;
+    cursor: pointer;
+    border-radius: 100px;
+    box-shadow: 0 0 20px 1px black;
+    transition: all 0.3s;
+}
+
+.resizeInput input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: white;
+    padding: 5px;
+}
+
+
+.resizeInput p {
+    font-size: 50px;
+    position: relative;
+    top: -45px;
+    letter-spacing: 30px;
+    color: #355a50b3;
+    z-index: -1;
+    font-weight: 900;
+}

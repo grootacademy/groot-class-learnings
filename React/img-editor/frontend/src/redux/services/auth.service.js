@@ -1,7 +1,6 @@
 import { toast } from "react-toastify";
-import Navigator from "../../components/utils/Navigator";
-import { notify } from "../../components/utils/toast";
-import { loginRequest, signupRequest } from "../backend/auth/auth";
+import { notify } from "../../utils/toast";
+import { loginRequest, signupRequest } from "../backend/auth/authRequests";
 
 export const loginService = async (data) => {
 

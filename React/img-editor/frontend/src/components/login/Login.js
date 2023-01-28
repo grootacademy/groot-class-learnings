@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { authActionLogin } from '../../redux/actions/auth.action'
-import { notify } from '../utils/toast'
+import { notify } from '../../utils/toast'
 import "./login.css"
 
 function Login() {
