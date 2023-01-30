@@ -14,6 +14,7 @@ app.use(express.urlencoded({ limit: '50mb' }));
 
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/images', require('./routes/images'))
+app.use('/api/notes', require('./routes/notes'))
 
 
 app.listen(port, () => {

@@ -30,6 +30,7 @@ Navy: #16123f */
     position: relative;
     cursor: pointer;
     transition: all 0.5s;
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 .imgLable:hover {
@@ -79,6 +80,12 @@ Navy: #16123f */
 
 }
 
+.editImage canvas {
+    max-height: 500px;
+    border: 20px solid rgba(255, 255, 255, 0.575);
+
+}
+
 .editImage {
     background: rgba(255, 255, 255, 0.321);
     /* overflow: hidden; */
@@ -120,16 +127,18 @@ Navy: #16123f */
 .resizeInput {
     padding-top: 30px;
     height: 95px;
-    box-shadow: 0 0 80px -5px rgb(0, 0, 0) inset;
+    /* box-shadow: 0 0 80px -5px rgb(0, 0, 0) inset; */
+    width: 90%;
     /* border-radius: 10px; */
+
 }
 
 .resizeInput input[type="range"] {
     -webkit-appearance: none;
-    width: 99%;
+    width: 100%;
     margin-top: 10px;
     height: 5px;
-    background-image: linear-gradient(to right, #4a4a4a, #000000, #4a4a4a);
+    background-image: linear-gradient(to right, #848484, #000000, #4a4a4a);
     border-radius: 100px;
 }
 
@@ -158,4 +167,43 @@ Navy: #16123f */
     color: #355a50b3;
     z-index: -1;
     font-weight: 900;
+}
+
+.percentageSize {
+    font-weight: 900;
+    color: white;
+    border-left: 1px solid;
+    padding: 20px;
+    width: 7%;
+}
+
+input,
+textarea {
+    font-family: cursive;
+}
+
+.home {
+    height: 100vh;
+    width: 100%;
+    background: url(../public/images/hd-wallpaper-2695569_1920.jpg);
+    display: flex;
+    background-size: cover;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.home span{
+    /* color: white; */
+    text-decoration: none;
+    padding: 80px 200px;
+    background-color: rgb(19, 59, 123);
+    border-radius: 3px;
+    font-size: 30px;
+    font-weight: 900;
+    color: white;
+    border: 1px dotted;
+}
+
+.home a{
+    text-decoration: none;
 }

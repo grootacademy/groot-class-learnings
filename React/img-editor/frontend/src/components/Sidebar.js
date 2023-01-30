@@ -97,8 +97,15 @@ export default function Sidebar() {
         let canvas = document.createElement('canvas');
         let ctx = canvas.getContext('2d');
 
-        ctx.canvas.width = (element.offsetWidth * element.style.zoom * 1.5)
-        ctx.canvas.height = (element.offsetHeight * element.style.zoom* 1.5)
+        if (!element.style.zoom) {
+            ctx.canvas.width = (element.offsetWidth * 3)
+            ctx.canvas.height = (element.offsetHeight * 3)
+
+        } else {
+            ctx.canvas.width = (element.offsetWidth * element.style.zoom * 1.5)
+            ctx.canvas.height = (element.offsetHeight * element.style.zoom * 1.5)
+
+        }
 
         ctx.filter = filterStringState;
         ctx.drawImage(element, 0, 0, canvas.width, canvas.height);
@@ -518,9 +525,9 @@ export default function Sidebar() {
                             <li>
                                 <a onClick={download} className="download-btn mt-5 icon-s-prt shadow-lg" > <span className=""><img src="images/icons/icons8-download-94.png" alt="" />Download image</span></a>
                             </li>
-                            <li>
+                            {/* <li>
                                 <a onClick={downloadResized} className="download-btn mt-5 icon-s-prt shadow-lg" > <span className=""><img src="images/icons/icons8-download-94.png" alt="" />Download resized image</span></a>
-                            </li>
+                            </li> */}
                         </ul>
                     </nav>
                 </aside>
