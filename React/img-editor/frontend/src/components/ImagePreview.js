@@ -1,10 +1,8 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { render } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { baseUrl } from '../config';
 import { addImageAction, deleteImageAction, getAllImagesAction, } from '../redux/actions/image.Action';
 import { notify } from '../utils/toast';
 import Spinner from './Spinner';
@@ -43,8 +41,16 @@ function ImagePreview(props) {
 
   // useEffect for first mount of component.
   useEffect(() => {
-    setIsloading(true)
-    dispatch(getAllImagesAction())
+
+    const data = JSON.parse(localStorage.getItem("my-image-editor"));
+    if (data?._id) {
+      setIsloading(true)
+      dispatch(getAllImagesAction())
+    } else {
+      navigate("/login")
+    }
+
+
   }, [])
 
   // useEffect to get all images after adding and deleting image
@@ -57,7 +63,7 @@ function ImagePreview(props) {
     if (allStates.processStatus === "success") {
       dispatch(getAllImagesAction())
     }
-    
+
     if (allStates.processStatus === "") {
       setIsloading(false)
     }

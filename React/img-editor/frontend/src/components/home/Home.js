@@ -1,9 +1,34 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { notify } from '../../utils/toast'
 import "./home.css"
 function Home() {
+
+    const navigate = useNavigate()
+
+    const logoutBtn = () => {
+        localStorage.removeItem("my-image-editor")
+        navigate("/login")
+        notify("Logged out successfully", toast.TYPE.SUCCESS)
+    }
+
+    useEffect(() => {
+        const data = JSON.parse(localStorage.getItem("my-image-editor"));
+        if (data?._id) {
+
+        } else {
+            navigate("/login")
+        }
+
+    }, [])
+
+
     return (
         <>
+
+
+
             {/* <div className="home">
 
                 <Link to="/notes">
@@ -18,6 +43,9 @@ function Home() {
                 </Link>
             </div> */}
             <div className="myhome">
+                <div className='d-flex justify-content-end'>
+                    <button className='btn btn-info  mt-3 mr-3  shadow float-right' onClick={logoutBtn}><img height="25px" src="/images/icons/icons8-logout-rounded-left-60.png" alt="" />Logout</button>
+                </div>
 
                 <div class="container">
                     <ul class="character-collection">
