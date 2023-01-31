@@ -1,11 +1,11 @@
 export const increaseNum = () => {
     return {
-        type: "increase",
+        type: "increase"
     }
 }
 
 export const decreaseNum = () => {
     return {
-        type: "decrease",
+        type: "decrease"
     }
 }

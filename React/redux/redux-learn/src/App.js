@@ -10,7 +10,9 @@ function App() {
   return (
     <>
 
-      num in One {data.reducer}
+      num in One {data.reducer.num}
+      <br />
+      age is {data.reducer.age}
 
       <br />
 
@@ -19,7 +21,7 @@ function App() {
       <br />
       <br />
 
-      app(data) - two - one(button)
+      app(data) -  two - one(button)
     </>
   );
 }

@@ -1,16 +1,25 @@
-const initialState = 0
+const initialState = {
+    num: 0,
+    age: 12
+}
 
 export const reducer = (state = initialState, action) => {
 
     if (action.type == "increase") {
-        state += 5
+        return {
+            ...state,
+            num: state.num + 5,
+            age: state.age + 1
+        }
     }
 
     if (action.type == "decrease") {
-        state -= 5
+        return {
+            ...state,
+            num: state.num - 5,
+            age: state.age - 1
+        }
     }
-    
-    console.log(state)
 
     return state
 }
