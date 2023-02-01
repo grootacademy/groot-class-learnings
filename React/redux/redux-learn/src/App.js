@@ -1,20 +1,20 @@
 import './App.css';
 import { useSelector } from 'react-redux';
-import One from './components/One';
 import Two from './components/Two';
 
 function App() {
 
   const data = useSelector(e => e)
 
+  console.log("this: ", data)
+
   return (
     <>
 
-      num in One {data.reducer.num}
+      {/* num in One {data?.reducer?.payload?.num} */}
       <br />
-      age is {data.reducer.age}
 
-      <br />
+      {JSON.stringify(data)}
 
       <Two />
 
@@ -22,6 +22,8 @@ function App() {
       <br />
 
       app(data) -  two - one(button)
+
+      {/* <WithApi /> */}
     </>
   );
 }

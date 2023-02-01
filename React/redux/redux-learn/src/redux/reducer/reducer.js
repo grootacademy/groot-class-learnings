@@ -1,25 +1,11 @@
 const initialState = {
-    num: 0,
-    age: 12
+    payload: {
+        num: 0
+    }
 }
 
 export const reducer = (state = initialState, action) => {
 
-    if (action.type == "increase") {
-        return {
-            ...state,
-            num: state.num + 5,
-            age: state.age + 1
-        }
-    }
 
-    if (action.type == "decrease") {
-        return {
-            ...state,
-            num: state.num - 5,
-            age: state.age - 1
-        }
-    }
-
-    return state
+    return { ...state, ...action.payload }
 }

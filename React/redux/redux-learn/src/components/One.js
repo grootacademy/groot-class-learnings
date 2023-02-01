@@ -4,6 +4,7 @@ import { decreaseNum, increaseNum } from '../redux/actions/increaseNum'
 
 function One() {
 
+   
     const dispatch = useDispatch()
 
     const increase = () => {

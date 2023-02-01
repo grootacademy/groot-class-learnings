@@ -1,4 +1,8 @@
-import { legacy_createStore } from "redux";
+import { applyMiddleware, legacy_createStore } from "redux";
+import thunk from "redux-thunk";
+
 import combineReducer from "./reducer/combineReducer";
 
-export default () => legacy_createStore(combineReducer, {})
+
+export default () => legacy_createStore(combineReducer, {}, applyMiddleware(thunk))
+
