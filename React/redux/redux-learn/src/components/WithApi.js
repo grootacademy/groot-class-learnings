@@ -1,12 +1,10 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDataAction } from '../redux/actions/getDataAction'
+import { clearApiDataAction, getDataAction } from '../redux/actions/getDataAction'
 
 function WithApi() {
 
     const data = useSelector(e => e)
-
-    console.log("in APP component", data)
 
     const dispatch = useDispatch()
 
@@ -14,9 +12,18 @@ function WithApi() {
         dispatch(getDataAction())
     }
 
+    function clearWithRedux() {
+        dispatch(clearApiDataAction())
+    }
+
+
+
     return (
         <>
             <button onClick={getDataWithRedux}>Get data with redux</button>
+            <button onClick={clearWithRedux}>Clear data</button>
+            <br /><br />
+            {JSON.stringify(data.reducer.userdata)}
         </>
     )
 }

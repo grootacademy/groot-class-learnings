@@ -1,36 +1,28 @@
 export const increaseNum = () => {
 
-    // console.log("in action", data)
+    return async (dispatch, getState) => {
 
-    // // return {
-    // //     type: "a",
-    // //     payload: {
-    // //         num: 7
-    // //     }
-    // // }
+        let store = getState()
+        let num = store.reducer.num
 
 
-    return async dispatch => {
-
-        const res = await fetch("http://localhost:3003/api/notes/63d604db26c93cf46f65f7c7")
-
-        const data = await res.json()
-
-        dispatch(reduxThunk(data))
-
+        dispatch(reduxThunk({ num: num + 5 }))
     }
 
 }
 
 
 export const decreaseNum = () => {
-    return {
-        type: "a",
-        payload: {
-            num: 3
-        }
+
+    return async (dispatch, getState) => {
+        let store = getState()
+        let num = store.reducer.num
+
+        dispatch(reduxThunk({ num: num - 5 }))
     }
+
 }
+
 
 
 function reduxThunk(data) {

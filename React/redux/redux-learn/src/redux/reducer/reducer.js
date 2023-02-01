@@ -1,7 +1,7 @@
 const initialState = {
-    payload: {
-        num: 0
-    }
+
+    num: 0
+
 }
 
 export const reducer = (state = initialState, action) => {

@@ -1,6 +1,7 @@
 import './App.css';
 import { useSelector } from 'react-redux';
 import Two from './components/Two';
+import WithApi from './components/WithApi';
 
 function App() {
 
@@ -14,7 +15,7 @@ function App() {
       {/* num in One {data?.reducer?.payload?.num} */}
       <br />
 
-      {JSON.stringify(data)}
+      {data.reducer.num}
 
       <Two />
 
@@ -23,7 +24,7 @@ function App() {
 
       app(data) -  two - one(button)
 
-      {/* <WithApi /> */}
+      <WithApi />
     </>
   );
 }
