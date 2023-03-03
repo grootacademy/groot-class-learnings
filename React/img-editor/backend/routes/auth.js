@@ -49,16 +49,22 @@ router.post('/login', loginValidations, async (req, res) => {
         return res.status(400).json({ errors: errors.array() });
     }
 
-    const user = await User.findOne({ email: req.body.email });
-    if (!user) return res.status(404).json({ errors: [{ msg: "user does not exists" }] });
+    // const user = await User.findOne({ email: req.body.email });
 
-    // req.body.password  -> simple string
-    // user.password  -> encrypted 
+    User.findOne({ email: req.body.email }, async (err, user) => {
 
-    const result = bcrypt.compareSync(req.body.password, user.password);
-    if (!result) return res.status(404).json({ errors: [{ msg: "incorrect password" }] });
+        if (err) {
+            return res.status(404).json({ errors: [{ msg: "user does not exists" }] });
+        }
 
-    res.json(user);
+        // req.body.password  -> simple string
+        // user.password  -> encrypted 
+        const result = bcrypt.compareSync(req.body.password, user.password);
+        if (!result) return res.status(404).json({ errors: [{ msg: "incorrect password" }] });
+
+        res.json(user);
+    });
+
 
 })
 

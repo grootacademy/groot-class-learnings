@@ -11,6 +11,9 @@ import Calculator from './components/Calculator';
 import ImagePreview from './components/ImagePreview';
 import Filters from './components/Filters';
 import MySlider from './components/MySlider';
+import RotateImage from './components/RotateImage';
+import ImageCompressor from './components/ImageCompressor';
+import Filters1 from './components/Filters1';
 
 function App() {
 
@@ -42,6 +45,9 @@ function App() {
         <Route path='/calculator' element={<Calculator />} />
         <Route path='/imagePreview' element={<ImagePreview />} />
         <Route path='/mySlider' element={<MySlider />} />
+        <Route path='/rotateImage' element={<RotateImage />} />
+        <Route path='/imageCompressor' element={<ImageCompressor />} />
+        <Route path='/filter' element={<Filters1 />} />
       </Routes>
 
       {/* <Filters/> */}

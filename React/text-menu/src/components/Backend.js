@@ -2,49 +2,56 @@ import React, { useEffect, useState } from 'react'
 
 function Backend() {
 
-  const [data, setData] = useState([]);
+  // let a = {
+  //   this: "my"
+  // }
 
-  // function getData() {
+  // useEffect(() => {
 
-  //   fetch("http://localhost:5057/api/provider/account")
+  //   fetch("https://pxq9g66t97.execute-api.us-east-1.amazonaws.com/dev/currency")
   //     .then(res => res.json())
   //     .then(json => {
   //       setData(json);
+  //       console.log(json)
+
   //     });
-  // }
 
-  useEffect(() => {
+  // }, []);
 
-    fetch("http://localhost:5057/api/provider/account")
+  function handle() {
+    fetch("https://pxq9g66t97.execute-api.us-east-1.amazonaws.com/dev/request", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ test: "string" }),
+    })
       .then(res => res.json())
       .then(json => {
-        setData(json);
+        console.log("local: ", json)
       });
+  }
 
-  }, []);
+  function handlelocal() {
+    fetch("http://localhost:3000/dev/currency", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ test: "string" }),
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log("online: ", json)
+      });
+  }
 
-
-  // useEffect(()=>{}, []);
-  // fetch().then().then();
 
   return (
     <div>
-      {/* <button onClick={getData}>Backend</button> */}
 
-      {data.map(e => (
-        <div key={e.id}>
-
-          <p>id:- {e.id}</p>
-          <p>accessKey:- {e.accessKey}</p>
-          <p>accountId:- {e.accountId}</p>
-          <p>cloudType:-{e.cloudType}</p>
-          <p>secretKey:- {e.secretKey}</p>
-          <hr />
-
-        </div>
-      ))}
-
-
+      <button onClick={handle}>click</button>
+      <button onClick={handlelocal}>local</button>
     </div>
   )
 }

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 function Navbar(props) {
 
     function toggleDarkMode(e) {
-        
+
         if (e.target.checked) {
             props.setMode("dark")
         }
@@ -42,6 +42,15 @@ function Navbar(props) {
                         </li>
                         <li className="nav-item">
                             <Link className="nav-link" to="/mySlider">Image Preview</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/rotateImage">RotateImage</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/imageCompressor">ImageCompressor</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link className="nav-link" to="/filter">Filter</Link>
                         </li>
 
                         <div className="custom-control custom-switch d-flex justify-content-center ml-5 ">
