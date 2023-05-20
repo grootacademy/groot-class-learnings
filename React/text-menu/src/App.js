@@ -14,6 +14,12 @@ import MySlider from './components/MySlider';
 import RotateImage from './components/RotateImage';
 import ImageCompressor from './components/ImageCompressor';
 import Filters1 from './components/Filters1';
+import FormSubmit from './components/FormSubmit';
+import InputDoubt from './components/InputDoubt';
+import Markdown1 from './components/Markdown';
+import Refs from './components/Refs';
+import { FunctionInJsx } from "./components/FunctionInJsx"
+import RightClick from './components/RightClick';
 
 function App() {
 
@@ -32,10 +38,11 @@ function App() {
 
   }
 
+
   return (
     <>
-      <Navbar mode={mode} setMode={setMode} />
-      {showAlert && <Alert message={message} />}
+      {/* <Navbar mode={mode} setMode={setMode} /> */}
+      {/* {showAlert && <Alert message={message} />} */}
 
       <Routes>
         <Route path='/' element={<TextMenu foralert={foralert} setMessage={setMessage} mode={mode} />} />
@@ -48,7 +55,14 @@ function App() {
         <Route path='/rotateImage' element={<RotateImage />} />
         <Route path='/imageCompressor' element={<ImageCompressor />} />
         <Route path='/filter' element={<Filters1 />} />
+        <Route path='/formSubmit' element={<FormSubmit />} />
+        <Route path='/inputDoubt' element={<InputDoubt />} />
+        <Route path='/markdown' element={<Markdown1 />} />
+        <Route path='/functionInJsx' element={<FunctionInJsx />} />
+        <Route path='/refs' element={<Refs />} />
+        <Route path='/right' element={<RightClick />} />
       </Routes>
+
 
       {/* <Filters/> */}
 

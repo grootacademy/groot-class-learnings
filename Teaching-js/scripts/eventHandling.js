@@ -84,24 +84,24 @@ document.getElementById("box").addEventListener('dblclick', () => {
 // })
 
 
-// let fs = 17;
+let fs = 17;
 
 
-// document.addEventListener('wheel', (e) => {
+document.addEventListener('wheel', (e) => {
 
-//     console.log(e)
+    console.log(e)
 
-//     if (e.deltaY > 0) {
-//         doc1.fontSize = fs + "px";
-//         fs -= 1;
+    if (e.deltaY > 0) {
+        doc1.fontSize = fs + "px";
+        fs -= 1;
 
-//     } else {
+    } else {
 
-//         doc1.fontSize = fs + "px";
-//         fs += 1;
-//     }
+        doc1.fontSize = fs + "px";
+        fs += 1;
+    }
 
-// })
+})
 
 
 // document.getElementById("box").addEventListener('click', () => {

@@ -7,14 +7,13 @@
 
 <body>
 
-
     <form>
         name: <input type="text" required name="name" placeholder="enter your name">
 
         email: <input type="email" name="email" placeholder="Enter Your email">
         <br><br>
 
-        number: <input type="number" value="15" disabled name="mobileNumber" >
+        number: <input type="number" value="15" disabled name="mobileNumber">
 
         <br><br>
 
@@ -34,8 +33,12 @@
         <br><br>
 
         <h2>Gender</h2>
-        Male <input type="radio" name="gender">
-        Female <input type="radio" name="gender">
+
+        <label for="male"> Male </label>
+        <input type="radio" name="gender" id="male">
+
+        <label for="female">Female</label>
+        <input type="radio" name="gender" id="female">
 
         <h2>Courses</h2>
         python: <input type="checkbox" checked>
@@ -44,7 +47,7 @@
 
         <br><br>
 
-        <select >
+        <select>
             <option disabled selected>--select a country--</option>
             <option>one</option>
             <option>two</option>
@@ -62,7 +65,7 @@
             <option>four</option>
             <option>four</option>
         </select>
-        
+
         <br><br>
 
         <input type="reset"> <input type="submit">

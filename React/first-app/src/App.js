@@ -36,7 +36,7 @@ function App() {
   return (
     <>
 
-      <Navbar />
+      {/* <Navbar />
 
       <div className="d-flex justify-content-center">
 
@@ -47,7 +47,10 @@ function App() {
 
 
 
-      </div>
+      </div> */}
+
+
+      
 
     </>
   )

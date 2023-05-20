@@ -1,0 +1,10 @@
+input[type="text"]{
+  border: none;
+  border-bottom: 2px solid gray;
+  padding: 20px;
+  width: 100%;
+}
+
+input:focus-visible{
+  outline: none;
+}

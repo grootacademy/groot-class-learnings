@@ -1,20 +1,23 @@
 import { baseUrl } from "../../../config"
 import { loggedInUserId } from "../../../utils/loggedInUserId"
-
+const FormData = require('form-data');
 
 // request to add image
 export const addImageRequest = async (binary) => {
     try {
+
+        const formData = new FormData()
+        formData.append("image", binary)
+        formData.append("title", "jitin")
+        formData.append("userId", loggedInUserId)
+
+        const headers = formData.getHeaders;
+
+        console.log("in request", binary)
         const response = await fetch(`${baseUrl}/images`, {
             method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                userId: loggedInUserId,
-                title: "image",
-                image: binary
-            })
+            headers,
+            body: formData
 
         })
         const data = await response.json()

@@ -1,0 +1,24 @@
+input[type="text"] {
+  border: none;
+  border-bottom: 2px solid black;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  transition: border-color 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: blue;
+}
+
+input[type="text"]:focus::placeholder {
+  transform: translateY(-20px);
+  font-size: 12px;
+  color: blue;
+  transition: all 0.3s ease-in-out;
+}
+
+.investigation table{
+  border-left: 15px solid red;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Form</title>
+</head>
+
+<body>
+
+    <form>
+
+        Name: <input type="text" required placeholder="Enter your name" value="Mitali" disabled> <br><br>
+        Password: <input type="password" required placeholder="Enter your password"> <br><br>
+        Email: <input type="email" required placeholder="Enter your email"> <br><br>
+        Number: <input type="number" required min="10" max="150"> <br><br>
+        Phone number: <input type="text" pattern="[0-9]{10}"> <br><br>
+        Color: <input type="color"> <br><br>
+        Date: <input type="date"> <br><br>
+        File: <input type="file"> <br><br>
+        Month: <input type="month"> <br><br>
+        Week: <input type="week"> <br><br>
+        Hidden: <input type="hidden">
+
+        <h2>Gender</h2>
+
+        <label for="male"> male </label> <input type="radio" name="gender" id="male">
+
+        <label for="female">female</label> <input type="radio" name="gender" id="female">
+
+        <label for="other">other</label> <input type="radio" name="gender" id="other">
+
+        <h2>courses</h2>
+
+        python: <input type="checkbox" checked>
+        java: <input type="checkbox" checked>
+        html: <input type="checkbox">
+        css: <input type="checkbox">
+        <br><br>
+        <input type="range" value="10"><br><br>
+
+        <select>
+            <option disabled selected>--select option--</option>
+            <option>one</option>
+            <option>two</option>
+            <option>three</option>
+            <option>shirt</option>
+            <option>t-shirt</option>
+            <option>jacket</option>
+        </select>
+
+        <br><br>
+        <input type="submit">
+        <input type="reset">
+
+    </form>
+
+
+</body>
+
+</html>

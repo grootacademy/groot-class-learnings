@@ -3,6 +3,9 @@ const router = express.Router();
 const { body, validationResult } = require('express-validator');
 const Images = require('../models/Images')
 const User = require('../models/user');
+const compressImage = require('../utils/imageCompress');
+const multer = require('multer');
+const upload = multer({ dest: 'uploads/' });
 
 const postImagesValidations = [
     body('userId', 'image can not be added without userId').exists(),
@@ -20,23 +23,39 @@ const putImagesValidations = [
 ]
 
 // Endpoint to post an image.
-router.post('/', postImagesValidations, async (req, res) => {
+router.post('/', upload.single('image'), async (req, res) => {
 
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        return res.status(400).json({ errors: errors.array() });
+
+    try {
+
+        const { path: imagePath, originalname } = req.file;
+        // const errors = validationResult(req);
+        // if (!errors.isEmpty()) {
+        //     return res.status(400).json({ errors: errors.array() });
+        // }
+
+        // const user = await User.findById(req.body.userId);
+
+        // if (!user) return res.status(404).json({ error: "user does not exist" });
+
+
+        // console.log("this is it", req.file)
+        // console.log("this is body", req.body)
+
+        const compresedImage = await compressImage(imagePath)
+
+        // console.log(compresedImage)
+
+        Images.create({
+            user: req.body.userId,
+            title: req.body.title,
+            image: compresedImage,
+            tag: req.body.tag,
+        }).then(image => res.json(image));
+
+    } catch (error) {
+        console.log("error in adding image", error)
     }
-
-    const user = await User.findById(req.body.userId);
-
-    if (!user) return res.status(404).json({ error: "user does not exist" });
-
-    Images.create({
-        user: req.body.userId,
-        title: req.body.title,
-        image: req.body.image,
-        tag: req.body.tag,
-    }).then(note => res.json(note));
 
 })
 

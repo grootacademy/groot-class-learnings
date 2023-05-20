@@ -1,100 +1,102 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
-        <style>
-            #popup{
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100vw;
-                height: 100vh;
-                justify-content: center;
-                align-items: center;
-                background-color:rgb(51 51 51 / 81%);
-                display: none;
-            }
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(51 51 51 / 81%);
+            display: none;
+        }
 
 
-            .inner_pop {
-                background-color: white;
-                padding: 30px;
-                border-radius: 6px;
-                box-shadow: 0 0 0 35px #ffffff2e;
-                display: flex;
-                flex-direction: column;
-                gap: 20px;
-                
-            }
+        .inner_pop {
+            background-color: white;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 0 0 35px #ffffff2e;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
 
-            .inner_pop button {
-                border: none;
-                padding: 10px 20px;
-                border-radius: 5px;
-                background: linear-gradient(45deg, red, #a100e6);
-                color: white;
-                /* font-weight: 600; */
-                width: fit-content;
-                font-family: cursive;
-                letter-spacing: 7px;
-                cursor: pointer;
-            }
+        }
 
-            .inner_pop input {
-                border: none;
-                padding: 13px 89px;
-                padding-left: 13px;
-                border-radius: 5px;
-                background: linear-gradient(45deg, #ff00004a, #a100e659);
-                font-family: cursive;
-            }
+        .inner_pop button {
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, red, #a100e6);
+            color: white;
+            /* font-weight: 600; */
+            width: fit-content;
+            font-family: cursive;
+            letter-spacing: 7px;
+            cursor: pointer;
+        }
 
-            .inner_pop input::placeholder{
-                color: purple;
-            }
+        .inner_pop input {
+            border: none;
+            padding: 13px 89px;
+            padding-left: 13px;
+            border-radius: 5px;
+            background: linear-gradient(45deg, #ff00004a, #a100e659);
+            font-family: cursive;
+        }
 
-            .inner_pop input:focus-visible{
-                outline: none;
-            }
+        .inner_pop input::placeholder {
+            color: purple;
+        }
+
+        .inner_pop input:focus-visible {
+            outline: none;
+        }
 
 
 
-            #box{
-                font-size: 17px;
-            }
+        #box {
+            font-size: 17px;
+        }
 
-            #box3{
-                color: gray;
-            }
+        #box3 {
+            color: gray;
+        }
+    </style>
+</head>
 
-        </style>
-    </head>
-    <body>
+<body>
 
-        <div id="box">
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate
-            necessitatibus provident, quas dicta suscipit ea a esse asperiores
-            accusantium voluptates optio odio ratione iusto quidem qui
-            temporibus consequuntur quis ipsa numquam officiis molestiae?
-            Deleniti?
+    <div id="box">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Cupiditate
+        necessitatibus provident, quas dicta suscipit ea a esse asperiores
+        accusantium voluptates optio odio ratione iusto quidem qui
+        temporibus consequuntur quis ipsa numquam officiis molestiae?
+        Deleniti?
+    </div>
+
+    <div id="box3"></div>
+
+    <!-- <div id="box2">This is content</div> -->
+
+    <div id="popup">
+        <div class="inner_pop">
+            <input id="inp" type="text" placeholder="Search">
+            <button onclick="submitButton()">
+                Click Here
+            </button>
         </div>
+    </div>
 
-        <div id="box3"></div>
+    <script src="scripts/eventHandling.js"></script>
+</body>
 
-        <!-- <div id="box2">This is content</div> -->
-
-        <div id="popup">
-            <div class="inner_pop">
-                <input id="inp" type="text" placeholder="Search">
-                <button  onclick="submitButton()">
-                    Click Here
-                </button>
-            </div>
-        </div>
-
-        <script src="scripts/eventHandling.js"></script>
-    </body>
 </html>

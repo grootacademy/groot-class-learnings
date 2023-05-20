@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { addImageAction, deleteImageAction, getAllImagesAction, } from '../redux/actions/image.Action';
 import { notify } from '../utils/toast';
 import Spinner from './Spinner';
+// import compressImage from '../utils/imageCompress';
 
 function ImagePreview(props) {
 
@@ -18,12 +19,19 @@ function ImagePreview(props) {
 
   // Function to add an image.
   async function handleImage(e) {
-    const reader = new FileReader();
-    reader.readAsDataURL(e.target.files[0]);
 
-    reader.onload = function () {
-      dispatch(addImageAction(reader.result))
-    };
+    const file = e.target.files[0]
+    // const reader = new FileReader();
+
+    // reader.onload = function (r) {
+    // const blob = new Blob([r.target.result], { type: e.target.files[0].type });
+    // console.log(blob)
+    // compressImage(imageByteCode)
+    // const uint8Array = new Uint8Array(r.target.result);
+    // };
+    dispatch(addImageAction(file))
+
+    // reader.readAsArrayBuffer(e.target.files[0]);
   }
 
   // Function to delete an image.
@@ -70,6 +78,9 @@ function ImagePreview(props) {
 
   }, [allStates])
 
+
+  console.log(images)
+
   return (
     <>
 
@@ -84,17 +95,23 @@ function ImagePreview(props) {
 
       {isloading ? <Spinner message="Loading images..." /> : <div> {images?.length !== 0 &&
         <div>
+          <p className='display-4 ml-5'>
+            Total images: {images?.length}
+          </p>
           <div className='d-flex flex-wrap'>
-            {images?.map((e, i) => (
 
-              <div key={i} onClick={() => props.setSelectedImage(e.image)} title="Open image in editor" className='d-flex justify-content-center shadow-lg p-4 imgPreview'>
-                <img src={e.image} height="200px" alt="" />
+            {images?.map((e, i) => {
+              const blob = new Blob([e.image], { type: 'image/jpeg' });
+              const imageUrl = URL.createObjectURL(blob);
+
+              return <div key={i} onClick={() => props.setSelectedImage(e.image)} title="Open image in editor" className='d-flex justify-content-center shadow-lg p-4 imgPreview'>
+                <img src={`data:image/jpeg;base64,${e.image}`} height="200px" alt="" />
                 <div className='deleteIcon ' onClick={(k) => forDeleteImage(i, k, e._id)}>
                   <i className="fa fa-trash" aria-hidden="true"></i>
                 </div>
               </div>
 
-            ))}
+            })}
           </div>
         </div>
       }</div>}
