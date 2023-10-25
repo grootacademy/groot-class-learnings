@@ -20,11 +20,23 @@ import Markdown1 from './components/Markdown';
 import Refs from './components/Refs';
 import { FunctionInJsx } from "./components/FunctionInJsx"
 import RightClick from './components/RightClick';
+import ImageShow from './components/ImageShow';
+import WillUnmount from './components/WillUnmount';
+import ImageError from './components/ImageError';
+import SampleUnmount from './components/sampleUnmount/SampleUnmount';
+import Carousal from './components/carousal/Carousal';
+
+import { useRef } from "react";
+import { motion } from "framer-motion";
+import { useFollowPointer } from './hooks/useFollowPointer';
 
 function App() {
 
   const [showAlert, setShowAlert] = useState(false);
   const [message, setMessage] = useState("default message");
+
+  const ref = useRef(null);
+  const { x, y } = useFollowPointer(ref);
 
   const [mode, setMode] = useState("light");
 
@@ -38,11 +50,10 @@ function App() {
 
   }
 
-
   return (
     <>
       {/* <Navbar mode={mode} setMode={setMode} /> */}
-      {/* {showAlert && <Alert message={message} />} */}
+      {showAlert && <Alert message={message} />}
 
       <Routes>
         <Route path='/' element={<TextMenu foralert={foralert} setMessage={setMessage} mode={mode} />} />
@@ -61,9 +72,24 @@ function App() {
         <Route path='/functionInJsx' element={<FunctionInJsx />} />
         <Route path='/refs' element={<Refs />} />
         <Route path='/right' element={<RightClick />} />
+        <Route path='/imageshow' element={<ImageShow />} />
+        <Route path='/unmount' element={<WillUnmount />} />
+        <Route path='/imageError' element={<ImageError />} />
+        <Route path='/sampleUnmount' element={<SampleUnmount />} />
+        <Route path='/carousal' element={<Carousal />} />
       </Routes>
 
-
+      <motion.div
+        ref={ref}
+        className="pointerbox"
+        animate={{ x, y }}
+        transition={{
+          type: "spring",
+          damping: 3,
+          stiffness: 50,
+          restDelta: 0.001
+        }}
+      />
       {/* <Filters/> */}
 
     </>

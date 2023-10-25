@@ -60,32 +60,32 @@ function TextMenu(props) {
 
     return (
         <>
-            <div className={`pt-3 ${props.mode == "dark" && "d_backGround"}`}>
+            <div className={`pt-3 ${props.mode === "dark" && "d_backGround"}`}>
 
-                <div className={`outer ${props.mode == "dark" && "d_backGround"}`} >
-                    <section className={`sec1 ${props.mode == "dark" && "d_backGround"}`}>
-                        <div className={`box back_color ${props.mode == "dark" && "d_backGround"}`}>
+                <div className={`outer ${props.mode === "dark" && "d_backGround"}`} >
+                    <section className={`sec1 ${props.mode === "dark" && "d_backGround"}`}>
+                        <div className={`box back_color ${props.mode === "dark" && "d_backGround"}`}>
                             <h3>Summery</h3>
                             <p>Charactors: {text.length}</p>
                             <p>Words: {text.split(" ").filter(e => e !== '').length}</p>
                         </div>
                         <div className='center_box '>
-                            <button onClick={toUpperCase} className={`${props.mode == "dark" && "d_backGround"}`}>UPPERCASE</button>
-                            <button onClick={toLowerCase} className={`${props.mode == "dark" && "d_backGround"}`}>lowercase</button>
-                            <button onClick={doClear} className={`${props.mode == "dark" && "d_backGround"}`}>Clear</button>
-                            <button onClick={doCopy} className={`${props.mode == "dark" && "d_backGround"}`}>Copy</button>
-                            <button onClick={doCut} className={`${props.mode == "dark" && "d_backGround"}`}>Cut</button>
-                            <button onClick={doDuplicate} className={`${props.mode == "dark" && "d_backGround"}`}>Duplicate</button>
-                            <button onClick={test} className={`${props.mode == "dark" && "d_backGround"}`}>Test</button>
+                            <button onClick={toUpperCase} className={`${props.mode === "dark" && "d_backGround"}`}>UPPERCASE</button>
+                            <button onClick={toLowerCase} className={`${props.mode === "dark" && "d_backGround"}`}>lowercase</button>
+                            <button onClick={doClear} className={`${props.mode === "dark" && "d_backGround"}`}>Clear</button>
+                            <button onClick={doCopy} className={`${props.mode === "dark" && "d_backGround"}`}>Copy</button>
+                            <button onClick={doCut} className={`${props.mode === "dark" && "d_backGround"}`}>Cut</button>
+                            <button onClick={doDuplicate} className={`${props.mode === "dark" && "d_backGround"}`}>Duplicate</button>
+                            <button onClick={test} className={`${props.mode === "dark" && "d_backGround"}`}>Test</button>
                         </div>
-                        <textarea className={`box back_color ${props.mode == "dark" && "d_backGround"}`} placeholder='Type Here' value={text} onChange={handleText} />
+                        <textarea className={`box back_color ${props.mode === "dark" && "d_backGround"}`} placeholder='Type Here' value={text} onChange={handleText} />
                     </section>
                 </div>
 
 
 
-                <div className={`outer ${props.mode == "dark" && "d_backGround"}`}>
-                    <section className={`sec1 sec2 ${props.mode == "dark" && "d_backGround"}`}>
+                <div className={`outer ${props.mode === "dark" && "d_backGround"}`}>
+                    <section className={`sec1 sec2 ${props.mode === "dark" && "d_backGround"}`}>
                         <h3>Preview</h3>
                         <p>{text}</p>
                     </section>

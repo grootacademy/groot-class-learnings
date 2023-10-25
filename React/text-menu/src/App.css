@@ -6,6 +6,10 @@ textarea {
     border: none;
 }
 
+.color {
+    color: red;
+}
+
 textarea:focus-visible {
     outline: none;
 }
@@ -122,7 +126,7 @@ textarea:focus-visible {
 .imgPreview {
     width: fit-content;
     margin: 30px auto;
-    border-radius: 20px;   
+    border-radius: 20px;
     cursor: pointer;
 }
 
@@ -133,4 +137,43 @@ textarea:focus-visible {
 
 .imgPreview img {
     border-radius: 10px;
+}
+
+/* src/App.css */
+.spring-carousel {
+    text-align: center;
+}
+
+.carousel-container {
+    display: inline-block;
+}
+
+.carousel-inner {
+    display: flex;
+    overflow-x: hidden;
+    max-width: 300px;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    margin-right: 10px;
+    transition: opacity 0.5s;
+}
+
+.carousel-item.active {
+    opacity: 1;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.pointerbox {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(128, 0, 128, 0.395);
+    border: 2px solid;
+    pointer-events: none;
 }
