@@ -29,6 +29,7 @@ import Carousal from './components/carousal/Carousal';
 import { useRef } from "react";
 import { motion } from "framer-motion";
 import { useFollowPointer } from './hooks/useFollowPointer';
+import AppleDocMenu from './components/appleDocMenu/AppleDocMenu';
 
 function App() {
 
@@ -77,9 +78,10 @@ function App() {
         <Route path='/imageError' element={<ImageError />} />
         <Route path='/sampleUnmount' element={<SampleUnmount />} />
         <Route path='/carousal' element={<Carousal />} />
+        <Route path='/appleDocMenu' element={<AppleDocMenu />} />
       </Routes>
 
-      <motion.div
+      {/* <motion.div
         ref={ref}
         className="pointerbox"
         animate={{ x, y }}
@@ -89,7 +91,7 @@ function App() {
           stiffness: 50,
           restDelta: 0.001
         }}
-      />
+      /> */}
       {/* <Filters/> */}
 
     </>
